@@ -9,10 +9,9 @@
 
   User.delete_all
   Picture.delete_all
-  Offer.delete_all
   ActiveRecord::Base.connection.reset_pk_sequence!('users')
   ActiveRecord::Base.connection.reset_pk_sequence!('pictures')
-  ActiveRecord::Base.connection.reset_pk_sequence!('offers')
+  
 
 
   5.times do |i|
@@ -24,13 +23,3 @@ puts "Users created"
     Picture.create!(name: Faker::Name.first_name, description: "Moi,Moche et Méchant. Allez acheter cette putain de photo !", price: rand(1..30), condition: "good", administrator_id: User.all.sample.id)
   end
 puts "Pictures created"
-
-  Picture.all.each do |pictures|
-    i = rand(1..5)
-    i.times do
-      users = User.all.reject{|u| pictures.administrator == u}.reject{|u| pictures.users.include?(u)}
-      Offer.create!(user_id: users.sample.id, picture_id: Picture.all.sample.id, stripe_customer_id: Faker::Code.ean)
-    end
-  end
-
-puts "Offers created"

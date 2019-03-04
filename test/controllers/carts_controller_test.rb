@@ -38,11 +38,21 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to cart_url(@cart)
   end
 
-  test "should destroy cart" do
+  test "should not destroy cart" do
+    post line_items_url, params: {picture_id: picture(:one)}
+    assert_no_difference('Cart.count') do
+      delete cart_url(@cart)
+    end
+    assert_response 204
+  end
+
+  test "should destroy cart if session matches" do
+    post line_items_url, params: {picture_id: picture(:one)}
+    @cart = Cart.find(session[:card_id])
     assert_difference('Cart.count', -1) do
       delete cart_url(@cart)
     end
 
-    assert_redirected_to carts_url
+    assert_redirected_to root_url
   end
 end
