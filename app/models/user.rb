@@ -4,18 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  after_create :welcome_send_user
+         
+         has_one_attached :avatar
+         has_many :offers, dependent: :destroy
+         has_many :pictures, through: :offers
+         has_many :administrated_pictures, class_name: "Picture", foreign_key: "administrator_id", dependent: :destroy
+         
+         validates :first_name, presence: true
+         validates :last_name, presence: true
+         validates :description, presence: true
 
-  has_one_attached :avatar
-  has_many :offers, dependent: :destroy
-  has_many :pictures, through: :offers
-  has_many :administrated_pictures, class_name: "Picture", foreign_key: "administrator_id", dependent: :destroy
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :description, presence: true
+after_create :welcome_send_user
 def welcome_send_user
   UserMailer.welcome_email(self).deliver_now
+  puts "wow"
 end
 
 
