@@ -27,8 +27,8 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    picture = Picture.find(params[:picture_id])
-    @line_item = @cart.line_items.new(picture: picture)
+    picture = Picture.find(params[:picture_id]).id
+    @line_item = @cart.add_picture(picture)
 
     respond_to do |format|
       if @line_item.save
