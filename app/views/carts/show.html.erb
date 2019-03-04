@@ -3,8 +3,8 @@
   <h2> Panier </h2>
 
   <ul>
-      <% cart.line_items.each do |items| %>
-        <li> <%= item.picture.name %> </li>
+      <% @cart.line_items.each do |item| %>
+        <li> <%= item.picture.name %> x <%= item.quantity %> </li>
       <%end%>
 
   </ul>
