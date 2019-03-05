@@ -58,7 +58,7 @@ class CartsController < ApplicationController
   def destroy
     # return
     unless @cart.id == session[:card_id]
-    end 
+    end
 
     @cart.destroy
     session.delete(:card_id)
