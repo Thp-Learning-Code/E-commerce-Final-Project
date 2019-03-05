@@ -7,13 +7,13 @@
 <div class="d-flex flex-column align-items-center  card m-2">
   <p></p>
   <h3 class=>Photos</h3>
-  <%if @picture.pic.attached?%>
-    <%= image_tag @picture.pic, alt: 'pic' %>
+  <%if @picture.chat_pic.attached?%>
+    <%= image_tag @picture.chat_pic, alt: 'pic' %>
   <%else%>
     <p>=== Il n'y a pas encore d'images lié à ce produit ===</p>
   <%end%>
   <p></p>
-  <%= form_tag picture_pics_path(@picture), multipart: true do %>
+  <%= form_tag picture_chat_pic_index_path(@picture), multipart: true do %>
     <%= file_field_tag :pic %>
     <%= submit_tag "uploader une photo" %>
   <% end %>

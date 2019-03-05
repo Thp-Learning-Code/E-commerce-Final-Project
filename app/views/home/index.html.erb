@@ -15,11 +15,11 @@
 <div class="hero-image">
  <div class="hero-text"><p style="font-size:  70px; color : #D3A723">Bienvenue <%= current_user.first_name %> </p>
    <p>Voici les dernieres offres de chatons </p>
- 
+
 
 
   <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Poster une offre </a>
- 
+
 </div>
 
 </div>
@@ -32,8 +32,8 @@
  <br>
               <div class="card text-center ">
                 <div class="card-header ">
-                  
-                   
+
+
                       <h4 class="card-title"><%= p.name %></h4>
                     </li>
                   </ul>
@@ -44,12 +44,14 @@
                     <br>
                     <p> Descriptions :<%= p.description %></p>
                   </div>
-                  <button class="btn-outline-success">
+
+                    <div>
                     <br>
                   <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
                   <br>
                   <br>
-                </button>
+                  </div>
+                
                   </div>
                 </div>
                   <%end%>
