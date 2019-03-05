@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <div class="d-flex flex-column align-items-center  card m-2">
@@ -41,7 +45,9 @@
   <%= @picture.administrator_id %>
 </p>
 
-<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture) %>
+<center><i class="fas fa-shopping-cart"></i><%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0" %></center>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Supprimer', picture_path(@picture), method: :delete %> |
 <%= link_to 'Back', root_path %>
+<br>
+<br>

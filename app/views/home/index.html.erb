@@ -1,11 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link type="text/css" rel="stylesheet" href="application.css">
+</head>
 <body>
 
 <main role="main">
 
+
+
  <!-- Main jumbotron for a primary marketing message or call to action -->
+<% if user_signed_in? %>
+<div class="hero-image">
+ <div class="hero-text"><p style="font-size:  70px; color : #D3A723">Bienvenue <%= current_user.first_name %> </p>
+   <p>Voici les dernieres offres de chatons </p>
+ 
 
 
-    <div class="card-deck semi-transparent">
+  <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Poster une offre </a>
+ 
+</div>
+
+</div>
+
+
+
+     <div class="card-deck semi-transparent">
+          <% @pictures.each do |p| %>
+            <div class="col-4 "">
+ <br>
+              <div class="card text-center ">
+                <div class="card-header ">
+                  
+                   
+                      <h4 class="card-title"><%= p.name %></h4>
+                    </li>
+                  </ul>
+                </div>
+                  <div class="card-body">
+                    <h4> Etat: <%= p.condition%></h4>
+                    <h5> Prix :<%= p.price %> € </h5>
+                    <br>
+                    <p> Descriptions :<%= p.description %></p>
+                  </div>
+                  <button class="btn-outline-success">
+                    <br>
+                  <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
+                  <br>
+                  <br>
+                </button>
+                  </div>
+                </div>
+                  <%end%>
+
+
+<%else%>
+<div class="hero-image">
+ <div class="hero-text">
+   <p style="font-size:  70px; color : #D3A723">Bienvenue </p>
+   <p>Voici les dernieres offres de chatons </p>
+ </div>
+</div></div>
+<div class="card-deck semi-transparent">
           <% @pictures.each do |p| %>
             <div class="col-4 "">
  <br>
@@ -23,15 +80,14 @@
                     <br>
                     <p> Descriptions :<%= p.description %></p>
                   </div>
-                  
-                  <%= link_to "Voir l'article", controller: "pictures", action:"show", id: p.id %>
-
                 </div>
               </div>
-            <%end%>
-   <br>
+      <%end%>
+      <br>
     </div>
+
+  <%end%>
 </main>
 
-
+<br>
 </body>
