@@ -1,5 +1,5 @@
 class Picture < ApplicationRecord
-
+  has_one_attached :chat_pic
   has_one_attached :pic
   has_many :line_items, dependent: :nullify
   belongs_to :administrator, class_name: "User"
