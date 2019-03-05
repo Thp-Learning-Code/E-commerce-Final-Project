@@ -15,10 +15,75 @@
   <body>
     
     <% if user_signed_in? %>
+<<<<<<< HEAD
      <%= render 'layouts/header_conected' %>
     <% else %>
       <%= render 'layouts/header_disconected' %>
     <%end%>
+=======
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+  <a class="navbar-brand" href="/">Accueil</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+
+
+     <li class="nav-item active">
+        <a class="nav-link" href="/pictures/new"> Poster une offre <span class="sr-only">(current)</span></a>
+      </li>
+      <li>
+
+      <div class="dropdown">
+  <a class="btn btn-secondary btn-sm dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Mon profil
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" >Bonjour, <%= current_user.first_name %> !</a>
+   
+    <a class="dropdown-item" href="/users/edit"> Modifier mes informations </a>
+
+  </div>
+</div>
+</li>
+<div>
+</div></ul>
+<ul class="navbar-nav ml-auto ">
+<li class="nav-item active">
+
+<span class="btn btn-danger btn-sm "> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
+
+    </li>
+    </div>
+  </ul>
+</div>
+
+
+
+      <% else %>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">Accueil</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/users/sign_up"> Creer un compte <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/users/sign_in"> Se connecter <span class="sr-only">(current)</span></a>
+      </li>
+<% end %>
+    </ul>
+  </div>
+
+</nav>
+>>>>>>> development
 
     <%= yield %>
       <%= render 'layouts/footer' %>

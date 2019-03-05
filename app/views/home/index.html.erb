@@ -23,9 +23,9 @@
                     <br>
                     <p> Descriptions :<%= p.description %></p>
                   </div>
-                  <% if user_signed_in? %>
+                  
                   <%= link_to "Voir l'article", controller: "pictures", action:"show", id: p.id %>
-                  <% end %>
+
                 </div>
               </div>
             <%end%>
