@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'avatar/create'
   resources :line_items
   resources :carts
   root to: "home#index"
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
   get 'home/secret'
   
   resources :pictures do
-    resources :pics, only: [:create]
+    resources :chat_pic, only: [:create]
   end
 
   resources :users do
