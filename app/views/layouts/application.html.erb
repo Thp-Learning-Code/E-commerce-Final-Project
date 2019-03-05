@@ -100,6 +100,13 @@
   </header>
   <body>
     <p id="alert"> <%= alert %> </p>
+    <div id="cart">
+    <% if @cart && @cart.line_items.any? %>
+    <%= render @cart %>
+    <% else %>
+    <h2> Panier Vide </h2>
+    <% end %>
+    </div>
   </body>
   <footer class="container">
   <p>&copy; Company 2017-2019</p>

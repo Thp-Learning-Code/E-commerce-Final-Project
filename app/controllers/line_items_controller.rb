@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  
+
   include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
@@ -33,7 +33,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.html { redirect_to root_url }
+        format.js
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }

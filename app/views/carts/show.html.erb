@@ -1,12 +1,1 @@
-<p id="notice"><%= notice %></p>
-
-  <h2> Panier </h2>
-
-  <ul>
-      <% @cart.line_items.each do |item| %>
-        <li> <%= item.picture.name %> x <%= item.quantity %> </li>
-      <%end%>
-
-  </ul>
-<%= button_to 'Vider le panier', @cart, method: :delete, data: {confirm: "Etes-vous sur ?"} %>
-<%= link_to 'Back', root_path %>
+<%= render @cart %>
