@@ -1,5 +1,36 @@
-
+<br><br><br>
 <div class="text-center">
+<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@user.id%></p>
+<h3>Avatar actuel</h3>
+<%if @user.avatar.attached?%>
+  <%= image_tag @user.avatar, alt: 'avatar' %>
+
+
+      <h3>Upload a new Profile Picture</h3>
+      <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+      <%= file_field_tag :avatar, class:"btn"%><br>
+     
+
+     <% if :avatar? == true  %>
+       <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
+     <% end%>
+
+    
+    <% end %>
+
+
+<%else%>
+
+  <h3>Upload</h3>
+  <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+    <%= file_field_tag :avatar %>
+    <%= submit_tag "mettre à jour" %>
+  <% end %>
+
+<%end%>
+<br>
+<br>
+<br>
 <p class="">First_name: <b><%= @user.first_name %></b></p>
 
 <p>Last_name: <b><%= @user.last_name %></b></p>
@@ -7,19 +38,3 @@
 <p>Email: <b><%=@user.email%></b></p>
 
 </div>
-
-
-  <%# create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end %>
