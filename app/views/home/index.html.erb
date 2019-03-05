@@ -3,23 +3,17 @@
 <main role="main">
 
  <!-- Main jumbotron for a primary marketing message or call to action -->
- <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3"><center>Bienvenue sur notre site !</center></h1>
-              <p><center><I>Voici les dernières offres de chatons</I></center> </p>
 
-        </div>
- </div>
 
-    <div class="card-deck">
+    <div class="card-deck semi-transparent">
           <% @pictures.each do |p| %>
             <div class="col-4 "">
  <br>
-              <div class="card text-center bg-light text-dark">
-                <div class="card-header bg-dark text-white">
+              <div class="card text-center ">
+                <div class="card-header text-center">
                   <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
-                      <h4 class="card-title"><%= p.name %></h4>
+                      <h4 class="card-title text-center"><%= p.name %></h4>
                     </li>
                   </ul>
                 </div>
