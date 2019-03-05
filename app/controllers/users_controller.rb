@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   private
 
-  def users_not_found
-    redirect_to root_url, alert: t(".users_not_found")
-  end
+  # def users_not_found
+  #   redirect_to root_url, alert: t("users_not_found")
+  # end
 
 end
