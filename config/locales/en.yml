@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+
+  carts:
+    show:
+      card_not_found: "Non Disponible"
+
+  users:
+    show:
+      card_not_found: "Non Disponible"
+
+  pictures:
+    show:
+      card_not_found: "Non Disponible"

@@ -45,7 +45,13 @@
   <%= @picture.administrator_id %>
 </p>
 
+
 <center><i class="fas fa-shopping-cart"></i><%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0" %></center>
+
+<% if user_signed_in? %>
+<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), data: {confirm: "L'article a été ajouté"}, remote: true %>
+  <% end %>
+
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Supprimer', picture_path(@picture), method: :delete %> |
 <%= link_to 'Back', root_path %>

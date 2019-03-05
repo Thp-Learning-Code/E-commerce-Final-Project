@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   get 'home/secret'
   
   resources :pictures do
-    resources :pics, only: [:create]
+    resources :chat_pic, only: [:create]
   end
 
-  resources :users, only: [:show] do
-    resources :avatars, only: [:create]
+  resources :users do
+    resources :avatar, only: [:create]
   end
 
 end
