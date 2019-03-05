@@ -6,6 +6,12 @@ class User < ApplicationRecord
 
 
          has_one_attached :avatar
+<<<<<<< HEAD
+=======
+         
+         has_many :offers, dependent: :destroy
+         has_many :pictures, through: :offers
+>>>>>>> development
          has_many :administrated_pictures, class_name: "Picture", foreign_key: "administrator_id", dependent: :destroy
          
 
