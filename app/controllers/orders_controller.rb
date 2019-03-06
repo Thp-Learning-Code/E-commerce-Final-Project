@@ -31,15 +31,39 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.cart = @cart
 
+    @amount = 500
+
+  customer = Stripe::Customer.create({
+    email: params[:stripeEmail],
+    source: params[:stripeToken],
+  })
+charge = Stripe::Charge.create({
+    customer: customer.id,
+    amount: @amount,
+    description: 'Rails Stripe customer',
+    currency: 'eur',
+  })
+
+
+
     respond_to do |format|
       if @order.save
         session.delete(:cart_id)
         format.html { redirect_to root_path, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
+
+
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
+      
+
       end
+
+
+  
+
+
     end
   end
 

@@ -16,6 +16,17 @@
       <%end%>
        <h2 style= style="color: black;"> Total = <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </h2>
   </ul>
+  
+
+
+
   <%= button_to "Acheter", new_order_path, method: :get, class: "btn btn-primary" %>
+
+
+
+
+
+
+
 <%= button_to 'Valider la commande', @cart, method: :delete, data: {confirm: "Etes-vous sur ?"}, remote: true %>
 </div></div></div>
