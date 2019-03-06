@@ -23,7 +23,7 @@
      <div class="card-deck semi-transparent">
           <% @pictures.each do |p| %>
             <div class="col-4 ">
-
+              <%= image_tag url_for(p.chat_pic) %>
               <div class="card text-center ">
               <div class="card-header ">
                    <h4  class="card-title "><%= p.name %><span style="color: #D3A723"> _____________</span> <%= p.price %> € </h4>
