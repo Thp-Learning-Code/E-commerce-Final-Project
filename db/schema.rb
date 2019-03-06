@@ -51,16 +51,6 @@ ActiveRecord::Schema.define(version: 2019_03_06_140358) do
     t.index ["picture_id"], name: "index_line_items_on_picture_id"
   end
 
-  create_table "offers", force: :cascade do |t|
-    t.string "stripe_customer_id"
-    t.bigint "user_id"
-    t.bigint "picture_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["picture_id"], name: "index_offers_on_picture_id"
-    t.index ["user_id"], name: "index_offers_on_user_id"
-  end
-
   create_table "orders", force: :cascade do |t|
     t.string "name", null: false
     t.text "address", null: false
@@ -80,7 +70,6 @@ ActiveRecord::Schema.define(version: 2019_03_06_140358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "administrator_id"
-    t.text "image"
     t.index ["administrator_id"], name: "index_pictures_on_administrator_id"
   end
 
@@ -102,7 +91,5 @@ ActiveRecord::Schema.define(version: 2019_03_06_140358) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "pictures"
-  add_foreign_key "offers", "pictures"
-  add_foreign_key "offers", "users"
   add_foreign_key "orders", "carts"
 end
