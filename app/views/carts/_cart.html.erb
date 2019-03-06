@@ -10,9 +10,11 @@
   <ul>
       <% @cart.line_items.each do |item| %>
         <li style="color:#D3A723"> <%= item.picture.name %> x <%= item.quantity %>
+          Prix unitaire = <%= number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
+          <%= link_to 'X', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-outline-danger" %>
         </li>
       <%end%>
-
+       <h2 style= style="color: black;"> Total = <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </h2>
   </ul>
-<%= button_to 'Vider le panier', @cart, method: :delete, data: {confirm: "Etes-vous sur ?"}, remote: true %>
+<%= button_to 'Valider la commande', @cart, method: :delete, data: {confirm: "Etes-vous sur ?"}, remote: true %>
 </div></div></div>
