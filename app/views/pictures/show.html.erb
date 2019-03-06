@@ -52,6 +52,7 @@
 <% if user_signed_in? %>
 <center><i style="font-size: 30px; color: #D3A723" class="fas fa-shopping-cart"></i>
 <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0", data: {confirm: "L'article a été ajouté"}, remote: true %></center>
+
   <% end %>
 
   <p id="alert"> <%= alert %> </p>
