@@ -37,6 +37,7 @@
                     <div>
                     <br>
                   <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
+                  <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: p.id), data: {confirm: "L'article a été ajouté"}, remote: true %>
                   <div>
                   <%if user_signed_in?%>
                     <%if current_user.id == p.administrator.id %>
@@ -46,13 +47,33 @@
                   </div>
                   <br><br>
                   </div>
-                
+
                   </div>
                 </div>
                   <%end%>
       <%# <%end%> %>
       <br>
     </div>
+    <p id="alert"> <%= alert %> </p>
+      <div id="cart">
+      <% if @cart && @cart.line_items.any? %>
+      <%= render @cart %>
+      <% else %>
+
+      <div class="card text-center">
+      <div class="card-title">
+        <span style="font-size: 40px; color: #D3A723;">
+    <i class="fas fa-shopping-cart"></i>
+    <a class="btn-outline-success" aria-pressed="true" href="/" style="font-size: 30px">Mon panier</a>
+  </span>
+
+  </div>
+      <p> Votre panier est vide </p>
+    </div>
+
+      <% end %>
+      </div>
+
 
 </main>
 <br>
