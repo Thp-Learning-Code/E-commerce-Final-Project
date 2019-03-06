@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_140358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "administrator_id"
+    t.text "image"
     t.index ["administrator_id"], name: "index_pictures_on_administrator_id"
   end
 

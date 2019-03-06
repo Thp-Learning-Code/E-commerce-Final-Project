@@ -1,46 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-
-
-</head>
-<body>
-
 <main role="main">
-
-
 
  <!-- Main jumbotron for a primary marketing message or call to action -->
 <% if user_signed_in? %>
 <div class="hero-image">
- <div class="hero-text">
-
-    <p style="font-size:  70px; color : #D3A723">Bienvenue <%= current_user.first_name %> </p>
-
-
-
-    <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Vendre une photo </a>
-   <br>
-   <br>
-    <h6 style="color: white;">
-    Les dernieres offres de photos de chatons </h6>
-</div>
-
-
-
-
+ <div class="hero-text"><p style="font-size:  70px; color : #D3A723">Bienvenue <%= current_user.first_name %> </p>
+   <p>Voici les dernieres offres de chatons </p>
+  <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Poster une offre </a>
 </div>
 </div>
-
+<%else%>
+<center>
+<div class="text-center">
+<div class="hero-image text-center">
+ <div class="hero-text"><p style="font-size:  70px; color : #D3A723">Bienvenue Humain </p>
+   <p>Voici les dernieres offres de chatons </p>
 </div>
-
-
-
+</div>
+</div>
+</center>
+<%end%>
 
      <div class="card-deck semi-transparent">
           <% @pictures.each do |p| %>
-            <div class="col-4 "">
+            <div class="col-4 ">
 
               <div class="card text-center ">
               <div class="card-header ">
@@ -51,75 +33,26 @@
 
                     <br>
                     <p> Descriptions :<%= p.description %></p>
-              </div>
-
-              <div>
-
-                  <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
-  <br>
-  <br>
-                  <center>
-                  <i style="font-size: 30px; color: #D3A723" class="fas fa-shopping-cart"></i>
-                  <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0", data: {confirm: "L'article a été ajouté"}, remote: true %>
-                  </center>
-                  <br>
-
-
-                  <br>
-
-              </div>
-              </div>
-
-              </div>
-
-
-                            <%end%>
-
-                            <p id="alert"> <%= alert %> </p>
-                            <div id="cart">
-                            <% if @cart && @cart.line_items.any? %>
-                            <%= render @cart %>
-                            <% else %>
-                            <h2 style="color: white;"> Panier Vide </h2>
-                            <% end %>
-                            </div>
-  <%else%>
-                  <div class="hero-image">
-                   <div class="hero-text">
-                     <p style="font-size:  70px; color : #D3A723">Bienvenue </p>
-                      <p>Voici les dernieres offres de chatons </p>
                   </div>
-                </div>
-              </div>
-<div class="card-deck semi-transparent">
-          <% @pictures.each do |p| %>
-            <div class="col-4 ">
- <br>
-              <div class="card text-center ">
-                <div class="card-header text-center">
-                  <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                      <h4 class="card-title text-center"><%= p.name %></h4>
-                    </li>
-                  </ul>
-                </div>
-                  <div class="card-body">
-                    <h4> Etat: <%= p.condition%></h4>
-                    <h5> Prix :<%= p.price %> € </h5>
+                    <div>
                     <br>
-                    <p> Descriptions :<%= p.description %></p>
+                  <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
+                  <div>
+                  <%if user_signed_in?%>
+                    <%if current_user.id == p.administrator.id %>
+                        <%=link_to 'edit' , edit_picture_path(p.id) %>
+                    <%end%>
+                  <%end%>
+                  </div>
+                  <br><br>
+                  </div>
+                
                   </div>
                 </div>
-              </div>
-      <%end%>
-
-
+                  <%end%>
+      <%# <%end%> %>
+      <br>
     </div>
 
-  <%end%>
-
-
-
 </main>
-
-</body>
+<br>
