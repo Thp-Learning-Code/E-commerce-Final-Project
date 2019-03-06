@@ -4,9 +4,18 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
+<<<<<<< HEAD
 gem 'rubocop', '~> 0.65.0', require: false
 
 gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+=======
+gem 'therubyracer'
+
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+
+>>>>>>> development
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
