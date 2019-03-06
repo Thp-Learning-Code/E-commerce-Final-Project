@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_134226) do
+ActiveRecord::Schema.define(version: 2019_03_06_140358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2019_03_04_134226) do
     t.index ["picture_id"], name: "index_line_items_on_picture_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "address", null: false
+    t.string "email", null: false
+    t.integer "status", default: 0, null: false
+    t.bigint "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
+  end
+
   create_table "pictures", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -80,4 +91,5 @@ ActiveRecord::Schema.define(version: 2019_03_04_134226) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "pictures"
+  add_foreign_key "orders", "carts"
 end

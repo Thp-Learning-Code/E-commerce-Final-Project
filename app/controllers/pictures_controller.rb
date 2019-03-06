@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PicturesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :pictures_not_found
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: %i[show edit update destroy]
 
   # GET /pictures
   # GET /pictures.json
@@ -10,9 +12,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1
   # GET /pictures/1.json
-  def show
-    
-  end
+  def show; end
 
   # GET /pictures/new
   def new
@@ -20,8 +20,7 @@ class PicturesController < ApplicationController
   end
 
   # GET /pictures/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /pictures
   # POST /pictures.json
@@ -65,16 +64,18 @@ class PicturesController < ApplicationController
   end
 
   private
-  def pictures_not_found
-    redirect_to root_url, alert: t(".pictures_not_found")
-  end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def picture_params
-      params.require(:picture).permit(:name, :description, :price, :condition, :administrator_id)
-    end
+  def pictures_not_found
+    redirect_to root_url, alert: t('.pictures_not_found')
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_picture
+    @picture = Picture.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def picture_params
+    params.require(:picture).permit(:name, :description, :price, :condition, :administrator_id)
+  end
 end
