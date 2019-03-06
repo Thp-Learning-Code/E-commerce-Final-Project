@@ -52,7 +52,9 @@
 
 <% if user_signed_in? %>
 <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), data: {confirm: "L'article a été ajouté"}, remote: true %>
-  <% end %>
+<%else%>
+<h3 class="text-center">Connect toi pour acheter</h3>
+ <% end %>
 <%if user_signed_in? && current_user.id == @picture.administrator_id%>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Supprimer', picture_path(@picture), method: :delete %> |
