@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
 
- 
-
-	<link type="text/css" rel="stylesheet" href="style.css">
+	<!-- <link type="text/css" rel="stylesheet" href="style.css">--->
 <% if user_signed_in? %>
-</head>
-<body>
+
   <div class="bs-component">
               <nav class="navbar navbar-expand-lg semi-transparent fixed-top navbar-dark  ">
                 <a class="navbar-brand" href="/">Accueil</a>
@@ -20,9 +14,9 @@
                     <li class="nav-item">
                       <a class="nav-link" href="/pictures/new"> Poster une offre </a>
                     </li>
-            
-     
-      
+
+
+
   <li>
       <div class="dropdown">
   <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,27 +24,27 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    
+
     <a class="dropdown-item" >Bonjour, <%= current_user.first_name %> !</a>
 
-    <a class="dropdown-item" >  
+    <a class="dropdown-item" >
       <%= link_to "Voir le profil", user_path(current_user), class: "dropdown-item" %> </a>
 
     <a class="dropdown-item" href="/users/edit"> Modifier mes informations </a>
-    
+
   </div>
 </div>
 </li>
 </ul>
-                   
 
-                    
-                    
-                  
-                  
-                    
+
+
+
+
+
+
                     <span class="btn btn-outline-danger my-2 my-sm-0" role="button" aria-pressed="true"> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></span>
-                  
+
                 </div>
               </nav>
             </div>
@@ -72,10 +66,10 @@
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                       <a class="nav-link" href="/users/sign_up">S'inscrire</a>
-                    </li>  
+                    </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
-                    
+
                     <a href="/users/sign_in" class="btn-outline-gold" role="button" aria-pressed="true">Connexion<a>
                   </form>
                 </div>
@@ -84,6 +78,3 @@
 
 
 <%end%>
-     
-</body>
-</html>
