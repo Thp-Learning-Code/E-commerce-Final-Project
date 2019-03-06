@@ -5,63 +5,65 @@
 </head>
 
 <body>
+  
+  <div class="container">
+    
+      <div class="card text-center">
+         <div class="card-header ">
+                   <h4  class="card-title"> <h1 style="color: black;" ><b><%= @user.first_name %></b>
+                <b><%= @user.last_name %></b></h1><%=  %> </h4>
+                </div>
 
-
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-    <div class="span3 well">
+      <div class="span3 well">
+        
         <center>
-       <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
-        <h3><p class=""><b><%= @user.first_name %></b></p>
-
-<p><b><%= @user.last_name %></b></p></h3>
          
+        
+       <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
+        
         </center>
-    </div>
-    <!-- Modal -->
     
-<div class="text-center">
+          <div class="text-center">
+            <p style="color:black;">Avatar actuel<p>
+              
+              
+               <%if @user.avatar.attached?%>
 
+                  <%= image_tag @user.avatar, alt: 'avatar' %>
 
+                    <p>Upload a new Profile Picture</p>
+      
+                      <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+                          <%= file_field_tag :avatar, class:"btn"%>
 
-<div class="text-center">
-<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@user.id%></p>
-<h3>Avatar actuel</h3>
-<%if @user.avatar.attached?%>
-  <%= image_tag @user.avatar, alt: 'avatar' %>
-
-
-      <h3>Upload a new Profile Picture</h3>
-      <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-      <%= file_field_tag :avatar, class:"btn"%><br>
      
-
-     <% if  %>
-       <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
-     <% end%>
+                              <% if  %>
+                               <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
+                              <% end%>
 
     
-    <% end %>
+                          <% end %>
 
+                       
+                <%else%>
 
-<%else%>
+                     <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+                       <%= file_field_tag :avatar %>
+                          <%= submit_tag "mettre à jour" %>
+                        <% end %>
 
-  <h3>Upload</h3>
-  <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-    <%= file_field_tag :avatar %>
-    <%= submit_tag "mettre à jour" %>
-  <% end %>
-
-<%end%>
-<br>
-<br>
-<br>
-<p class="">First_name: <b><%= @user.first_name %></b></p>
-
-
-<p>Last_name: <b><%= @user.last_name %></b></p>
-<p>Description: <b><%=@user.description%></b></p>
-<p>Email: <b><%=@user.email%></b></p>
-
-</div>
+                <%end%>
+           
+                       
+                        <br>
+                        <br>
+ 
+        
+             <h3 style="color:black;"> Description:</h3> <p> <b><%=@user.description%></b></p>
+              <h3 style="color:black;">Email:</h3> <p> <b><%=@user.email%></b></p>
+              
+            </div>
+         </div>
+       </div>
+    </body>
+</html>

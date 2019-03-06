@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-  <h2> Panier </h2>
-
+ <div class="card text-center">
+    <div class="card-title">
+      <span style="font-size: 40px; color: #D3A723;">
+  <i class="fas fa-shopping-cart"></i>
+  <a class="btn-outline-success" aria-pressed="true" href="/" style="font-size: 30px">Mon panier</a>
+</span>
+<div class="card-body">
   <ul>
       <% @cart.line_items.each do |item| %>
-        <li> <%= item.picture.name %> x <%= item.quantity %>
+        <li style="color:#D3A723"> <%= item.picture.name %> x <%= item.quantity %>
         </li>
       <%end%>
 
   </ul>
 <%= button_to 'Vider le panier', @cart, method: :delete, data: {confirm: "Etes-vous sur ?"}, remote: true %>
+</div></div></div>
