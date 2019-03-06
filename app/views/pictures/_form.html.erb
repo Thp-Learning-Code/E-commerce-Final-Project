@@ -37,19 +37,14 @@
   </div>
 
   <p>Upload</p>
-  <%= form_tag picture_chat_pic_index_path(:picture_id), multipart: true do %>
-    <%= file_field_tag :chat_pic %>
-  <% end %>
+  <%= form.label :chat_pic %>
+    <%= form.file_field :chat_pic %>
 
 <br>
 
-
-
-
   <div class="actions">
-    <%= form.submit"Mettre en vente",class:"btn-outline-success "%> 
+    <%= form.submit"Mettre en vente",class:"btn-outline-success"%>
   </div>
-  
+
 <% end %>
 </center>
-
