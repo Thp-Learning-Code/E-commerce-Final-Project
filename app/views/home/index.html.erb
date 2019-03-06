@@ -5,25 +5,23 @@
 <div class="hero-image">
  <div class="hero-text"><p style="font-size:  70px; color : #D3A723">Bienvenue <%= current_user.first_name %> </p>
    <p>Voici les dernieres offres de chatons </p>
-
-
-
   <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Poster une offre </a>
-
 </div>
-
 </div>
+<%else%>
 
-
-
+<div class="hero-image">
+ <div class="hero-text"><p style="font-size:  70px; color : #D3A723">Bienvenue Humain</p>
+   <p>Voici les dernieres offres de chatons </p>
+</div>
+</div>
+<%end%>
      <div class="card-deck semi-transparent">
           <% @pictures.each do |p| %>
-            <div class="col-4 "">
+            <div class="col-4">
  <br>
               <div class="card text-center ">
                 <div class="card-header ">
-
-
                       <h4 class="card-title"><%= p.name %></h4>
                     </li>
                   </ul>
@@ -34,51 +32,26 @@
                     <br>
                     <p> Descriptions :<%= p.description %></p>
                   </div>
-
                     <div>
                     <br>
                   <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
-                  <br>
-                  <br>
+                  <div>
+                  <%if user_signed_in?%>
+                    <%if current_user.id == p.administrator.id %>
+                        <%=link_to 'edit' , edit_picture_path(p.id) %>
+                    <%end%>
+                  <%end%>
+                  </div>
+                  <br><br>
                   </div>
                 
                   </div>
                 </div>
                   <%end%>
-
-
-<%else%>
-<div class="hero-image">
- <div class="hero-text">
-   <p style="font-size:  70px; color : #D3A723">Bienvenue </p>
-   <p>Voici les dernieres offres de chatons </p>
- </div>
-</div></div>
-<div class="card-deck semi-transparent">
-          <% @pictures.each do |p| %>
-            <div class="col-4 ">
- <br>
-              <div class="card text-center ">
-                <div class="card-header text-center">
-                  <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                      <h4 class="card-title text-center"><%= p.name %></h4>
-                    </li>
-                  </ul>
-                </div>
-                  <div class="card-body">
-                    <h4> Etat: <%= p.condition%></h4>
-                    <h5> Prix :<%= p.price %> € </h5>
-                    <br>
-                    <p> Descriptions :<%= p.description %></p>
-                  </div>
-                </div>
-              </div>
-      <%end%>
+      <%# <%end%>
       <br>
     </div>
 
-  <%end%>
 </main>
 
 <br>

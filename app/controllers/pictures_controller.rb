@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :pictures_not_found
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_user_is_administrator_of_product_pic , only: [:edit, :update]
 
   # GET /pictures
   # GET /pictures.json

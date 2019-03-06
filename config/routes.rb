@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get '/notfound', to: 'notfound#index'
   resources :line_items
   resources :carts
   root to: "home#index"

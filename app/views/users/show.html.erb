@@ -21,7 +21,7 @@
 <%if @user.avatar.attached?%>
   <%= image_tag @user.avatar, alt: 'avatar' %>
 
-<%if current_user.id == @user.id%>
+<%if user_signed_in? && current_user.id == @user.id%>
       <h3>Upload a new Profile Picture</h3>
       <%= form_tag user_avatar_index_path(@user), multipart: true do %>
       <%= file_field_tag :avatar, class:"btn"%><br>
@@ -36,7 +36,7 @@
 
 
 <%else%>
-  <%if current_user.id == @user.id%>
+  <%if user_signed_in? && current_user.id == @user.id%>
   <h3>Upload</h3>
   <%= form_tag user_avatar_index_path(@user), multipart: true do %>
     <%= file_field_tag :avatar %>

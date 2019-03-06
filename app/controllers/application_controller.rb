@@ -18,8 +18,21 @@ if current_user.id != @user
   flash[:success]="Degage Escroc"
   redirect_to root_path
 end
-
 end
+
+
+def check_if_user_is_administrator_of_product_pic
+  @picture = Picture.find(params[:id])
+  if user_signed_in? && current_user.id != @picture.administrator_id
+    flash[:danger]="oh moussaillon tu fais quoi ici"
+    redirect_to root_path
+
+  elsif !user_signed_in?
+    flash[:danger]="oh moussaillon tu fais quoi ici"
+    redirect_to root_path
+  end
+end
+
 
 
 end
