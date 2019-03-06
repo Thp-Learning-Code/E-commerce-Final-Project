@@ -28,10 +28,11 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+
     @order = Order.new(order_params)
     @order.cart = @cart
 
-    @amount = 500
+    @amount = @cart.total * 100
 
   customer = Stripe::Customer.create({
     email: params[:stripeEmail],

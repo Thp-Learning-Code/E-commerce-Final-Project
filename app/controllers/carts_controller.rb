@@ -56,13 +56,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    # return
-    unless @cart.id == session[:card_id]
-    end
-
     @cart.destroy
-    session.delete(:card_id)
-
     respond_to do |format|
       format.html { redirect_to root_url, notice: 'Votre panier est maintenant vide.' }
       format.json { head :no_content }
