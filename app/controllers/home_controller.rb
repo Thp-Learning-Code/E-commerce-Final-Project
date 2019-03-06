@@ -1,13 +1,11 @@
-class HomeController < ApplicationController
+# frozen_string_literal: true
 
+class HomeController < ApplicationController
   before_action :authenticate_user!, only: [:secret]
 
   def index
     @pictures = Picture.all
   end
 
-  def secret
-  end
-
-
+  def secret; end
 end

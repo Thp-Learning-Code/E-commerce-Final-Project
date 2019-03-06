@@ -1,3 +1,8 @@
+ <div class="card text-center">
+         <div class="card-header ">
+                   <h1 class="card-title" style="color: black;" ><b>Vendre sa photo </h1>
+                </div>
+<center>
 <%= form_with(model: picture, local: true) do |form| %>
   <% if picture.errors.any? %>
     <div id="error_explanation">
@@ -13,32 +18,39 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description,class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price,class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :condition %>
-    <%= form.text_field :condition %>
+    <%= form.text_field :condition,class: "form-control" %>
   </div>
 
 
+  <p>Upload</p>
+  <%= form_tag picture_chat_pic_index_path(:picture_id), multipart: true do %>
+    <%= file_field_tag :chat_pic %>
+  <% end %>
 
-
+<br>
 
 
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit"Mettre en vente",class:"btn-outline-success "%> 
   </div>
+  
 <% end %>
+</center>
+

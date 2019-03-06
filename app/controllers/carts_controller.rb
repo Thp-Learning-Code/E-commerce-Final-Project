@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :card_not_found
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[show edit update destroy]
+  before_action :set_cart, only: %i[show edit update destroy]
 
   # GET /carts
   # GET /carts.json
@@ -11,8 +13,7 @@ class CartsController < ApplicationController
 
   # GET /carts/1
   # GET /carts/1.json
-  def show
-  end
+  def show; end
 
   # GET /carts/new
   def new
@@ -20,8 +21,7 @@ class CartsController < ApplicationController
   end
 
   # GET /carts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /carts
   # POST /carts.json
@@ -70,16 +70,18 @@ class CartsController < ApplicationController
   end
 
   private
-    def card_not_found
-      redirect_to root_url, alert: t(".card_not_found")
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
+  def card_not_found
+    redirect_to root_url, alert: t('.card_not_found')
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cart_params
+    params.fetch(:cart, {})
+  end
 end

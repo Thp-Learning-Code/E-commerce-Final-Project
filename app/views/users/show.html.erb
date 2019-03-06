@@ -10,16 +10,37 @@
          
     </div>
     <!-- Modal -->
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+  
+  <div class="container">
     
-<div class="text-center">
+      <div class="card text-center">
+         <div class="card-header ">
+                   <h4  class="card-title"> <h1 style="color: black;" ><b><%= @user.first_name %></b>
+                <b><%= @user.last_name %></b></h1><%=  %> </h4>
+                </div>
 
+      <div class="span3 well">
+        
+        <center>
+         
+        
+       <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
+        
+        </center>
+    
+          <div class="text-center">
+            <p style="color:black;">Avatar actuel<p>
+              
+              
+               <%if @user.avatar.attached?%>
 
-
-<div class="text-center">
-<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@user.id%></p>
-<h3>Avatar actuel</h3>
-<%if @user.avatar.attached?%>
-  <%= image_tag @user.avatar, alt: 'avatar' %>
+                  <%= image_tag @user.avatar, alt: 'avatar' %>
 
 <%if user_signed_in? && current_user.id == @user.id%>
       <h3>Upload a new Profile Picture</h3>

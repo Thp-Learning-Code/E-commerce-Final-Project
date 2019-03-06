@@ -10,25 +10,20 @@
 </div>
 <%else%>
 
-<div class="hero-image">
- <div class="hero-text"><p style="font-size:  70px; color : #D3A723">Bienvenue Humain</p>
-   <p>Voici les dernieres offres de chatons </p>
-</div>
-</div>
-<%end%>
+
+
+
      <div class="card-deck semi-transparent">
           <% @pictures.each do |p| %>
-            <div class="col-4">
- <br>
+            <div class="col-4 ">
+
               <div class="card text-center ">
-                <div class="card-header ">
-                      <h4 class="card-title"><%= p.name %></h4>
-                    </li>
-                  </ul>
+              <div class="card-header ">
+                   <h4  class="card-title "><%= p.name %><span style="color: #D3A723"> _____________</span> <%= p.price %> € </h4>
                 </div>
-                  <div class="card-body">
+              <div class="card-body">
                     <h4> Etat: <%= p.condition%></h4>
-                    <h5> Prix :<%= p.price %> € </h5>
+
                     <br>
                     <p> Descriptions :<%= p.description %></p>
                   </div>
@@ -53,5 +48,4 @@
     </div>
 
 </main>
-
 <br>
