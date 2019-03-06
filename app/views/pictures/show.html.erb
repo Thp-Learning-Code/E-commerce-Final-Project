@@ -8,8 +8,8 @@
     <%= image_tag @picture.chat_pic, alt: 'pic' %>
   <%else%>
     <p>=== Il n'y a pas encore d'images lié à ce produit ===</p>
-  <%end%>
   <p></p>
+  <%end%>
   <% if user_signed_in? && current_user.id == @picture.administrator_id %>
   <%= form_tag picture_chat_pic_index_path(@picture), multipart: true do %>
     <%= file_field_tag :pic %>
