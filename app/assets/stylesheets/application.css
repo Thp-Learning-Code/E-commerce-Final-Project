@@ -12,7 +12,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  .footer-distributed{
-  background-color: black;
+  background-color: #FFBBC5;
 
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -134,7 +134,7 @@
   color:  #ffffff;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .footer-distributed .footer-icons{
@@ -146,16 +146,16 @@
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #33383b;
+  background-color:  #fff;
   border-radius: 2px;
 
   font-size: 20px;
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   line-height: 35px;
 
   margin-right: 3px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
@@ -545,7 +545,7 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 0.5rem;
   font-weight: 600;
   line-height: 1.2;
-  color: #D3A723;
+  color: white;
 }
 
 h1, .h1 {
@@ -2241,7 +2241,7 @@ pre code {
   border-color: #fff;
   outline: 0;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
-          box-shadow: 0 0 0 0.2rem #D3A723;
+          box-shadow: 0 0 0 0.2rem #FFBBC5;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -2321,7 +2321,7 @@ select.form-control:focus::-ms-value {
   border-color: #5a5a5a;
   outline: 0;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
-          box-shadow: 0 0 0 0.2rem #D3A723;}
+          box-shadow: 0 0 0 0.2rem #FFBBC5;}
 .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
   padding-right: 0;
   padding-left: 0;
@@ -3168,27 +3168,27 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
- color: #D3A723;
- border-color: #D3A723;
+ color: #FFBBC5;
+ border-color: #FFBBC5;
  border-radius: 12px 0 12px 0
 }
 
 .btn-outline-success:hover {
  color: #fff;
- background-color: #D3A723;
- border-color: #D3A723;
+ background-color: #FFBBC5;
+ border-color: #FFBBC5;
 }
 
 .btn-outline-success.disabled, .btn-outline-success:disabled {
- color: #D3A723;
+ color: #FFBBC5;
  background-color: transparent;
 }
 
 .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,
 .show > .btn-outline-success.dropdown-toggle {
  color: #fff;
- background-color: #D3A723;
- border-color: #D3A723;
+ background-color: #FFBBC5;
+ border-color: #FFBBC5;
 }
 
 .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,
@@ -3276,7 +3276,7 @@ fieldset:disabled a.btn {
 }
 .btn-outline-gold {
   border-radius:12px 0 12px 0;
-    background: #D3A723;
+    background: #FFBBC5;
     border:none;
     color:#fff;
     font:bold 12px Verdana;
@@ -3293,7 +3293,7 @@ fieldset:disabled a.btn {
   font:bold 12px Verdana;
   padding:6px 0 6px 0;
   color: #fff;
-  background-color: #D3A723;
+  background-color: #FFBBC5;
   border-color: #d9534f;
 }
 
@@ -3489,7 +3489,7 @@ input[type="button"].btn-block {
   display: inline-block;
   margin-left: 0.255em;
   vertical-align: 0.255em;
-  content: "";
+  
   border-top: 0.3em solid;
   border-right: 0.3em solid transparent;
   border-bottom: 0;
@@ -3511,13 +3511,9 @@ input[type="button"].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 0.875rem;
-  color: #D3A723;
-  text-align: left;
-  list-style: none;
-  background-color: white;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
- border-radius: 0 12px 0 12px;
+  
+  
+
 }
 
 .dropdown-menu-left {
@@ -3624,7 +3620,7 @@ input[type="button"].btn-block {
 }
 
 .dropleft .dropdown-menu {
-  top: 0;
+  top: 50%;
   right: 100%;
   left: auto;
   margin-top: 0;
@@ -4549,9 +4545,11 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  color:black;
 }
 
 .nav-link:hover, .nav-link:focus {
+  color:#FFBBC5;
   text-decoration: none;
 }
 
@@ -4566,7 +4564,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs .nav-item {
-  margin-bottom: -1px;
+  margin-bottom: px;
 }
 
 .nav-tabs .nav-link {
@@ -4576,7 +4574,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: #f7f7f9 #f7f7f9 #eceeef;
+  border-color: #FFBBC5;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -4633,6 +4631,7 @@ input[type="button"].btn-block {
 }
 
 .navbar {
+  background-color: #fff;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4664,7 +4663,9 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
+  color:black;
   display: inline-block;
+
   padding-top: 0.3359375rem;
   padding-bottom: 0.3359375rem;
   margin-right: 1rem;
@@ -4674,6 +4675,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
+  color:#FFBBC5;
   text-decoration: none;
 }
 
@@ -4864,8 +4866,7 @@ input[type="button"].btn-block {
     position: absolute;
   }
   .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    
   }
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
@@ -4999,7 +5000,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
-  color: rgba(0, 0, 0, 0.3);
+color: rgba(0, 0, 0, 0.3);
 }
 
 .navbar-light .navbar-nav .show > .nav-link,
@@ -5042,11 +5043,11 @@ color:white;
 }
 
 .navbar-dark .navbar-brand {
-  color: #D3A723;
+  color: #FFBBC5;
 } /*modif*/
 
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
-  color: #D3A723;
+  color: #FFBBC5;
 }/*modif*/
 
 .navbar-dark .navbar-nav .nav-link {
@@ -5054,7 +5055,7 @@ color:white;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-  color: #D3A723;
+  color: #FFBBC5;
 }
 
 .navbar-dark .navbar-nav .nav-link.disabled {
@@ -5090,7 +5091,7 @@ color:white;
 }
 
 .card {
-  box-shadow: 1px 1px 12px  black;
+  box-shadow: 1px 1px 15px  black;
 
   position: relative;
   display: -webkit-box;
@@ -5103,11 +5104,10 @@ color:white;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
-  opacity:0,6;
   background-clip: border-box;
   border: 2px solid ;
-  border-color: #D3A723;
-  border-radius: 30px 0 20px 0;
+  border-color: #FFBBC5;
+  border-radius: 30px 0 30px 0;
 }
 
 .card > hr {
@@ -5165,8 +5165,8 @@ color:white;
 
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: #D3A723; opacity:0,5;
-  border-radius:20px 0 20px 0;
+  background-color: #FFBBC5;
+  border-radius:20px 0 0 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -5231,7 +5231,7 @@ color:white;
 .card-deck {
   opacity: 0,5;
 
-background-color: #D3A723;
+background-color: #fff;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
@@ -5246,9 +5246,6 @@ position: relative;
           flex-direction: column;
 }
 
-.card-deck .card {
-  margin-bottom: 15px;
-}
 
 @media (min-width: 576px) {
   .card-deck {
@@ -5270,12 +5267,11 @@ position: relative;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-            margin-top: 15px;
+            
     margin-right: 15px;
-    margin-bottom: 15px;
     margin-left: 15px;
   }
-}
+
 
 .card-group {
   display: -webkit-box;
@@ -10824,7 +10820,8 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .navbar-brand {
-  margin-right: 2rem;
+  margin-left: 27rem;
+  margin-right: 24rem;
 }
 
 .bg-primary {
@@ -10931,8 +10928,8 @@ th {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: black;
-   color: #D3A723;
+   background-color: #fff;
+   color: #FFBBC5;
    text-align: center;
    font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 } 
@@ -10945,7 +10942,7 @@ body, html {
 }
 
 .hero-image {
- background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("chat.jpg");
+ background-image:  url("chat.jpg");
  height: 650px;
  background-position: center;
  background-repeat: no-repeat;
@@ -10974,8 +10971,8 @@ body, html {
   font-family: sans-serif;
  text-align: right;
  position: absolute;
- top: 30%;
- left: 60%;
+ top: 25%;
+ left: 50%;
  transform: translate(-50%, -50%);
  color: #fff;
 }

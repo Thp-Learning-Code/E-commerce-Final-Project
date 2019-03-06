@@ -16,15 +16,14 @@
 <div class="hero-image">
  <div class="hero-text">
 
-    <p style="font-size:  70px; color : #D3A723">Bienvenue <%= current_user.first_name %> </p>
+    <h1 style ="font-family: serif;color: #fff;">Bienvenue <%= current_user.first_name %> !</h1>
 
 
 
-    <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Vendre une photo </a>
-   <br>
-   <br>
+    
+
     <h6 style="color: white;">
-    Les dernieres offres de photos de chatons </h6>
+    Decouvre les dernieres photos de chatons </h6>
     
 </div>
 
@@ -39,13 +38,13 @@
 
 
 
-     <div class="card-deck ">
+     <div class="card-deck semi-transparent ">
           <% @pictures.each do |p| %>
             <div class="col-4 "">
 
               <div class="card text-center ">
               <div class="card-header ">
-                   <h4  class="card-title "><%= p.name %><span style="color: #D3A723"> _____________</span> <%= p.price %> € </h4>
+                   <h4  class="card-title "><%= p.name %><span style="color: #FFBBC5"> _____________</span> <%= p.price %> € </h4>
                 </div>
               <div class="card-body">
                     <h4> Etat: <%= p.condition%></h4>
@@ -57,16 +56,11 @@
               <div>
 
                   <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
-  <br>
-  <br>
-                  <center>
-                  <i style="font-size: 30px; color: #D3A723" class="fas fa-shopping-cart"></i>
-                  <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0", data: {confirm: "L'article a été ajouté"}, remote: true %>
-                  </center>
-                  <br>
-
-
-                  <br>
+ <br>
+ <center><i style="font-size: 30px; color: #D3A723;" class="fas fa-shopping-cart"></i>
+<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0", data: {confirm: "L'article a été ajouté"}, remote: true %></center>
+<br>
+<br>
 
               </div>
               </div>
@@ -76,18 +70,10 @@
 
                             <%end%>
 
-                            <p id="alert"> <%= alert %> </p>
-                            <div id="cart">
-                            <% if @cart && @cart.line_items.any? %>
-                            <%= render @cart %>
-                            <% else %>
-                            <h2 style="color: white;"> Panier Vide </h2>
-                            <% end %>
-                            </div>
   <%else%>
                   <div class="hero-image">
                    <div class="hero-text">
-                     <p style="font-size:  70px; color : #D3A723">Bienvenue </p>
+                     <p style="font-size:  70px; color : #FFBBC5">Bienvenue </p>
                       <p>Voici les dernieres offres de chatons </p>
                   </div>
                 </div>
@@ -95,7 +81,6 @@
 <div class="card-deck semi-transparent">
           <% @pictures.each do |p| %>
             <div class="col-4 ">
- <br>
               <div class="card text-center ">
                 <div class="card-header text-center">
                   <ul class="nav nav-pills card-header-pills">

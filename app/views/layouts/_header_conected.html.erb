@@ -5,58 +5,75 @@
 
 <% if user_signed_in? %>
 
+     
+    <nav class="navbar navbar-expand-lg semi-transparent fixed-top  ">        
+       
+            <div class="dropdown">
+                           <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-shopping-cart" style="font-size: 25px; color: #D3A723;"></i></a> 
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <p id="notice"><%= notice %></p>
+                     <div class="card text-center">
+                         <div class="card-header">
+                             
+                                <p style="color:black;font-size: 15px; font-family: serif;">Mon panier</p>
+                             </div>
+                             
+                             <div class="card-body">
+                               <ul> 
+                                    <% @cart.line_items.each do |item| %>
+                                   <li style="color:#FFBBC5"> <%= item.picture.name %> x <%= item.quantity %>
+                                      Prix unitaire = <%= number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
+                                       <%= link_to 'X', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" %>
+                                   </li>
+                                                          <%end%>                      
+                                     <p style="color: black; font-size: 15px">Total :<%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </p>                     
+                                </ul>
+                                  <%= button_to "Finaliser ma commande", new_order_path, method: :get, class: "btn btn-outline-gold" %>
+                            </div>
+                    </div>
+                </div>
+            </div>  
+      
+               
+        
 
-  <div class="bs-component">
-              <nav class="navbar navbar-expand-lg semi-transparent fixed-top navbar-dark  ">
-                <a class="navbar-brand" href="/">Accueil</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+          <div class="nav item">
+                <div class="dropdown">
+ 
+                           <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon profil</a> 
 
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                      <a class="nav-link" href="/pictures/new"> Vendre une photo</a>
-                    </li>
+                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <div class="card text-center">
+                                   <div class="card-header">
+                                      <div class="card-title">
 
+                                           <h6 style="font-size: 15px,color: white;"  class="dropdown-item" >Bonjour, <%= current_user.first_name %> !</h6>
+                                      </div>
+                                    </div>
+                                      <div class="card-body">
+                                        <a class="dropdown-item"> <%= link_to "Voir le profil", user_path(current_user), class: "dropdown-item" %> </a>
 
+                                            <a class="dropdown-item" href="/users/edit"> Modifier mes informations </a>
+                                            <br>
+                                             <a class="btn" role="button" aria-pressed="true"> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
+                                            <br>
+                                       </div>
+                              </div>
+                      </div>
+                </div>
+          </div>
+          <a class="navbar-brand" href="/"> <i style ="color: #FFBBC5;font-size: 40px;" class="fas fa-cat"></i></a>
+           <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Vendre une photo </a>
+       
 
-  <li>
-      <div class="dropdown">
-  <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Mon profil
-  </a>
+        
+                    
+  </nav>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-
-    <a class="dropdown-item" >Bonjour, <%= current_user.first_name %> !</a>
-
-    <a class="dropdown-item" >
-      <%= link_to "Voir le profil", user_path(current_user), class: "dropdown-item" %> </a>
-
-    <a class="dropdown-item" href="/users/edit"> Modifier mes informations </a>
-
-  </div>
-
-</div>
-</li>
-</ul>
-
-
-
-
-                    <span class="btn btn-outline-danger my-2 my-sm-0" role="button" aria-pressed="true"> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></span>
-
-             
-
-
-      </div>
-    </nav>
-  </div>
 
 <% else %>
 
-<div class="bs-component">
+
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top semi-transparent">
     <a class="navbar-brand" href="/">Accueil</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,12 +86,12 @@
                   <a class="nav-link" href="/users/sign_up">S'inscrire</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <a href="/users/sign_in" class="btn-outline-gold" role="button" aria-pressed="true">Connexion<a>
-            </form>
+              <form class="form-inline my-2 my-lg-0">
+              <a href="/users/sign_in" class="btn btn-outline-gold" role="button" aria-pressed="true">Connexion<a>
+              </form>
           </div>
-  </nav>
-</div>
+   </nav>
+
 
 
 <%end%>
