@@ -38,14 +38,14 @@ class OrdersController < ApplicationController
     email: params[:stripeEmail],
     source: params[:stripeToken],
   })
-charge = Stripe::Charge.create({
+  charge = Stripe::Charge.create({
     customer: customer.id,
     amount: @amount,
     description: 'Rails Stripe customer',
     currency: 'eur',
   })
 
-
+  @order.stripe_id = customer.id
 
     respond_to do |format|
       if @order.save

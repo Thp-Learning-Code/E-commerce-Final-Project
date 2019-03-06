@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom:</strong>
   <%= @order.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Addresse:</strong>
   <%= @order.address %>
 </p>
 
@@ -16,14 +16,14 @@
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong>Etat de la commande:</strong>
   <%= @order.status %>
 </p>
 
 <p>
-  <strong>Cart:</strong>
-  <%= @order.cart %>
+  <strong>Numéro de panier:</strong>
+  <%= @order.cart.id %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+
+<%= link_to "Retour vers la page d'accueil", root_path %>
