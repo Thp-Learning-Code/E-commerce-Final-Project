@@ -1,13 +1,23 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
-    <div class="span3 well text-center">
+    <div class="span3 well">
+        <center>
        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
         <h3><p class=""><b><%= @user.first_name %></b></p>
 
         <p><b><%= @user.last_name %></b></p></h3>
          
+        </center>
     </div>
     <!-- Modal -->
     
@@ -21,7 +31,7 @@
 <%if @user.avatar.attached?%>
   <%= image_tag @user.avatar, alt: 'avatar' %>
 
-<%if current_user.id == @user.id%>
+
       <h3>Upload a new Profile Picture</h3>
       <%= form_tag user_avatar_index_path(@user), multipart: true do %>
       <%= file_field_tag :avatar, class:"btn"%><br>
@@ -30,20 +40,21 @@
      <% if  %>
        <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
      <% end%>
-<%end%>
+
     
     <% end %>
 
 
 <%else%>
-  <%if current_user.id == @user.id%>
+
   <h3>Upload</h3>
   <%= form_tag user_avatar_index_path(@user), multipart: true do %>
     <%= file_field_tag :avatar %>
     <%= submit_tag "mettre à jour" %>
   <% end %>
+
 <%end%>
-<%end%><br>
+<br>
 <br>
 <br>
 <p class="">First_name: <b><%= @user.first_name %></b></p>
