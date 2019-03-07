@@ -20,7 +20,13 @@
     <body>
 
       <%= render 'layouts/header_conected' %>
+      
 
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-dismissible fade show alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
    <%= yield %>
 
     <%= render 'layouts/footer' %>
@@ -32,5 +38,5 @@
 
 
 
-
+</body>
 </html>
