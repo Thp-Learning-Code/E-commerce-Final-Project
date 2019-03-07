@@ -45,6 +45,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def secure_picture
+      redirect_to root_path
+    end
+
 
 
 end

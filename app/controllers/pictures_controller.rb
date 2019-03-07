@@ -6,6 +6,9 @@ class PicturesController < ApplicationController
   before_action :check_if_user_is_administrator_of_product_pic , only: [:edit, :update]
   before_action :set_picture, only: %i[show edit update destroy]
 
+    
+      before_action :secure_picture, only: [:index]
+
   # GET /pictures
   # GET /pictures.json
   def index
