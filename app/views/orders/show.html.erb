@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @order.name %>
+</p>
+
+<p>
+  <strong>Addresse:</strong>
+  <%= @order.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>Etat de la commande:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Numéro de panier:</strong>
+  <%= @order.cart.id %>
+</p>
+
+
+<%= link_to "Retour vers la page d'accueil", root_path %>

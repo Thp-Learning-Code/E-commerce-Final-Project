@@ -62,6 +62,8 @@ class CartsController < ApplicationController
 
     @cart.destroy
     session.delete(:card_id)
+    reset_session
+
 
     respond_to do |format|
       format.html { redirect_to root_url, notice: 'Votre panier est maintenant vide.' }

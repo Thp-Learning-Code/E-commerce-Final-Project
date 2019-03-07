@@ -1,13 +1,17 @@
 
+<!------ Include the above in your HEAD tag ---------->
+
+
+    <!-- Modal -->
 <!DOCTYPE html>
 <html>
 <head>
 </head>
 
 <body>
-  
+
   <div class="container">
-    
+
       <div class="card text-center">
          <div class="card-header ">
                    <h4  class="card-title"> <h1 style="color: black;" ><b><%= @user.first_name %></b>
@@ -15,55 +19,27 @@
                 </div>
 
       <div class="span3 well">
-        
+
         <center>
-         
-        
+
+
        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
-        
+
         </center>
-    
-          <div class="text-center">
-            <p style="color:black;">Avatar actuel<p>
-              
-              
-               <%if @user.avatar.attached?%>
 
-                  <%= image_tag @user.avatar, alt: 'avatar' %>
 
-                    <p>Upload a new Profile Picture</p>
-      
-                      <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-                          <%= file_field_tag :avatar, class:"btn"%>
 
-     
-                              <% if  %>
-                               <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
-                              <% end%>
 
-    
-                          <% end %>
-
-                       
-                <%else%>
-
-                     <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-                       <%= file_field_tag :avatar %>
-                          <%= submit_tag "mettre à jour" %>
-                        <% end %>
-
-                <%end%>
-           
-                       
                         <br>
                         <br>
- 
-        
+
+
              <h3 style="color:black;"> Description:</h3> <p> <b><%=@user.description%></b></p>
               <h3 style="color:black;">Email:</h3> <p> <b><%=@user.email%></b></p>
-              
+
             </div>
          </div>
        </div>
+     </p></p></div></div></div></div>
     </body>
 </html>
