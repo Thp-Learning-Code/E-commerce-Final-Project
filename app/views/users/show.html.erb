@@ -1,3 +1,9 @@
+<div class="container">
+    <div class="span3 well text-center">
+        <h3><p class=""><b><%= @user.first_name %></b></p>
+
+        <p><b><%= @user.last_name %></b></p></h3>
+
   <div class="container">
 
       <div class="card text-center">
@@ -8,51 +14,44 @@
 
       <div class="span3 well">
 
-        <center>
+          <div class="text-center">
+            <p style="color:black;">Avatar actuel<p>
 
 
-          <%if @user.avatar.attached?%>
+               <%if @user.avatar.attached?%>
 
-             <%= image_tag @user.avatar, alt: 'avatar',width:"350", height:"250", class:"img-circle" %>
+                  <%= image_tag @user.avatar, alt: 'avatar' %>
 
-               <p>Upload a new Profile Picture</p>
-
-                 <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-                     <%= file_field_tag :avatar, class:"btn"%>
-
-
-                         <% if  %>
-                          <%= submit_tag "mettre à jour", class:"btn-outline-success" %>
-                         <% end%>
+<%if user_signed_in? && current_user.id == @user.id%>
+      <h3>Upload a new Profile Picture</h3>
+      <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+      <%= file_field_tag :avatar, class:"btn"%><br>
 
 
-                     <% end %>
+     <% if  %>
+       <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
+     <% end%>
+<%end%>
+
+    <% end %>
 
 
-           <%else%>
-
-                <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-                  <%= file_field_tag :avatar %>
-                     <%= submit_tag "mettre à jour" %>
-                   <% end %>
-
-           <%end%>
-
-
-
-        </center>
-
-
+<%else%>
+  <%if user_signed_in? && current_user.id == @user.id%>
+  <h3>Upload</h3>
+  <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+    <%= file_field_tag :avatar %>
+    <%= submit_tag "mettre à jour" %>
+  <% end %>
+<%end%>
+<%end%><br>
+<br>
+<br>
+<p class="">First_name: <b><%= @user.first_name %></b></p>
 
 
-                        <br>
-                        <br>
+<p>Last_name: <b><%= @user.last_name %></b></p>
+<p>Description: <b><%=@user.description%></b></p>
+<p>Email: <b><%=@user.email%></b></p>
 
-
-             <h3 style="color:black;"> Description:</h3> <p> <b><%=@user.description%></b></p>
-              <h3 style="color:black;">Email:</h3> <p> <b><%=@user.email%></b></p>
-
-            </div>
-         </div>
-       </div>
-     </p></p></div></div></div></div>
+</div>

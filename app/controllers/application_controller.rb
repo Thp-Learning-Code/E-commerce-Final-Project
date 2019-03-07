@@ -34,21 +34,13 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def super_admin_security
-      @user = User.find_by(is_superadmin:true)
-      puts "#{@user.id}"
-      if user_signed_in? && current_user.id != @user.id
-        flash[:success]="Ca n'existe pas"
-        redirect_to '/'
-      elsif !user_signed_in?
-          redirect_to root_path
-      end
-    end
-
     def secure_picture
       redirect_to root_path
     end
 
+    def authorize_admin
+      redirect_to main_app.root_path unless current_user.is_superadmin?
+    end
 
 
 end

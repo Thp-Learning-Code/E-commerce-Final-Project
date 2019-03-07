@@ -1,5 +1,6 @@
 class Superadmin::AdminController < ApplicationController
-  before_action :super_admin_security
+  before_action :authorize_admin
+
   def index
   end
 

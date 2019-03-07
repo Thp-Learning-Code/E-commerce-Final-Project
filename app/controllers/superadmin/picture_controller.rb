@@ -1,5 +1,5 @@
 class Superadmin::PictureController < ApplicationController
-  before_action :super_admin_security
+   before_action :authorize_admin
   def index
     @picture = Picture.all
   end
@@ -10,7 +10,7 @@ class Superadmin::PictureController < ApplicationController
 
   def new
   end
-  
+
   def edit
     @picture = Picture.find(params[:id])
   end
@@ -20,7 +20,7 @@ class Superadmin::PictureController < ApplicationController
 
   def update
     @picture = Picture.find(params[:id])
-      if @picture.update picture_params 
+      if @picture.update picture_params
       end
   end
 
