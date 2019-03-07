@@ -6,12 +6,7 @@
                 </div>
   <div class="span3 well">
         
-        <center>
-         
-        
-       <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
-        
-        </center>
+      
     
           <div class="text-center">
             <p style="color:black;">Avatar actuel<p>
@@ -19,7 +14,7 @@
               
                <%if @user.avatar.attached?%>
 
-                  <%= image_tag @user.avatar, alt: 'avatar' %>
+                  <%= image_tag @user.avatar, alt: 'avatar',width:"140", height:"140", class:"img-circle" %>
 
                     <p>Upload a new Profile Picture</p>
       
@@ -28,7 +23,7 @@
 
      
                               <% if  %>
-                               <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
+                               <%= submit_tag "mettre à jour", class:"btn-outline-success" %>
                               <% end%>
 
     

@@ -1,4 +1,5 @@
 class Superadmin::AdminController < ApplicationController
+  before_action :super_admin_security
   def index
   end
 
@@ -16,4 +17,7 @@ class Superadmin::AdminController < ApplicationController
 
   def destroy
   end
+
+  private
+
 end

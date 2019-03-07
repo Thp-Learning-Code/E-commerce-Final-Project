@@ -1,4 +1,5 @@
 class Superadmin::PictureController < ApplicationController
+  before_action :super_admin_security
   def index
     @picture = Picture.all
   end
