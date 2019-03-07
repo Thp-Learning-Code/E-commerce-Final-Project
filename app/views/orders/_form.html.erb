@@ -1,72 +1,59 @@
-
-<div class="container">
-<div class="card text-center">
-  <div class="card-header">
-       <div class="card-title">
-              <h1> Payer</h1>
-      </div>
-  </div>
-  <center>
 <%= form_with(model: order, local: true) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+ <% if order.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+     <ul>
+     <% order.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, class:"form-control";%>
-  </div>
+ <div class="field">
+   <%= form.label :name %>
+   <%= form.text_field :name %>
+ </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address,class:"form-control"; %>
-  </div>
+ <div class="field">
+   <%= form.label :address %>
+   <%= form.text_area :address %>
+ </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email,class:"form-control"; %>
-  </div>
-  </center>
-
+ <div class="field">
+   <%= form.label :email %>
+   <%= form.text_field :email %>
+ </div>
 
 
 
-  <div class="actions">
+
+ <div class="actions">
 
 
 <%= link_to 'submit', :onclick => "$('#form_id').submit()" do %> <!-- brancher le mailer ICI -->
 
 
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </span>
-    </label>
-  </article>
+ <article>
+   <% if flash[:error].present? %>
+     <div id="error_explanation">
+       <p><%= flash[:error] %></p>
+     </div>
+   <% end %>
+   <label class="amount">
+     <span>Amount: <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </span>
+   </label>
+ </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %>"
-          data-locale="auto"></script>
+ <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+         data-description="A month's subscription"
+         data-amount="<%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %>"
+         data-locale="auto"></script>
 <% end %>
 
 
 
-  </div>
-  <br>
-</div>
-</div>
+ </div>
 <% end %>
