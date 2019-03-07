@@ -19,7 +19,7 @@ class Superadmin::PictureController < ApplicationController
 
   def update
     @picture = Picture.find(params[:id])
-      if @food_item.update food_item_params 
+      if @picture.update picture_params 
       end
   end
 
@@ -34,6 +34,6 @@ class Superadmin::PictureController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:name, :category, :description, food_images_attributes: [:id, :food_item_id, :avatar]) #-> this is enough (no need to "whitelist")
+    params.require(:picture).permit(:name, :condition, :description,  :price,:chat_pic) #-> this is enough (no need to "whitelist")
   end
 end
