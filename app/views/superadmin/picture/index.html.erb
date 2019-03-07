@@ -1,0 +1,29 @@
+<h1>Superadmin::Picture#index</h1>
+<p>Find me in app/views/superadmin/picture/index.html.erb</p>
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Condition</th>
+      <th scope="col">Delete</i><th>
+      <th scope="">
+    </tr>
+  </thead>
+  <tbody>
+<%@picture.each do |pic|%>
+    <tr>
+      <td><%= pic.name %></td>
+      <td><%= pic.description %></td>
+      <td><%= pic.price %></td>
+      <td><%= pic.condition %></td>
+      <td><%=  link_to 'Delete', superadmin_picture_path(pic), method: :delete  %></td>
+    </tr>
+<%end%>
+    <tr>
+  </tbody>
+</table>
+</div>
