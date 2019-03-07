@@ -1,11 +1,12 @@
 <div class="container">
+  
 <p id="notice"><%= notice %></p>
 
 <div class="d-flex flex-column align-items-center  card m-2">
   <p></p>
   <h3 class=>Photos</h3>
   <%if @picture.chat_pic.attached?%>
-    <%= image_tag @picture.chat_pic, alt: 'pic' %>
+    <%= image_tag @picture.chat_pic, alt: 'pic', width:"800", height:"600",class: "img-cat";%>
   <%else%>
     <p>=== Il n'y a pas encore d'images lié à ce produit ===</p>
   <p></p>
@@ -18,47 +19,38 @@
   <% end %>
   <p></p>
 </div>
-
-<p>
-  <strong>Name:</strong>
+<br>
+<h4>
+  <h3 style="color:#FFBBC5">Name:</h3>
   <%= @picture.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+<h3 style="color:#FFBBC5">Description:</h3>
   <%= @picture.description %>
-</p>
 
-<p>
-  <strong>Price:</strong>
+
+<h3 style="color:#FFBBC5">Price:</h3>
   <%= @picture.price %>
-</p>
 
-<p>
-  <strong>Condition:</strong>
+
+<h3 style="color:#FFBBC5">Condition:</h3>
   <%= @picture.condition %>
-</p>
 
-<p>
-  <strong>Administrator:</strong>
+
+<h3 style="color:#FFBBC5">Administrator:</h3>
   <%= @picture.administrator_id %>
-</p>
 
+</h4>
 
 
 
 
 <% if user_signed_in? %>
+
+<i style="font-size: 30px; color: #D3A723" class="fas fa-shopping-cart"></i>
 <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), data: {confirm: "L'article a été ajouté"}, remote: true,  class:"btn btn-outline-success my-2 my-sm-0"%>
 <%else%>
 <h3 class="text-center">Connect toi pour acheter</h3>
  <% end %>
-<%if user_signed_in? && current_user.id == @picture.administrator_id%>
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<center><i style="font-size: 30px; color: #D3A723" class="fas fa-shopping-cart"></i>
-<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), data: {confirm: "L'article a été ajouté"}, remote: true %></center>
 
-  <% end %>
 
  <br>
 <div class="d-flex flex-col aumn align-items-center  ">
@@ -72,3 +64,5 @@
 <br>
 <br>
 </div>
+</div>
+

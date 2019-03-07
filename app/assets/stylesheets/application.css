@@ -722,12 +722,29 @@ pre code {
   color: inherit;
   word-break: normal;
 }
-
+.img-cat{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    
+    width: 900px;
+    height: 600px;
+    border: 3px solid #FFBBC5;
+    margin: 10px;
+}
 .img-circle{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
     border-radius: 50%;
     width: 175px;
     height: 175px;
-    border: 4px solid #FFF;
+    border: 4px solid #FFBBC5;
+    margin: 10px;
+}
+
+.img-circle2{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #FFBBC5;
     margin: 10px;
 }
 
@@ -2993,15 +3010,15 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   border:3px solid;
-  border-radius:30px 30px 30px 30px;
+  border-radius:50%;
   color: #fff;
   background-color: #d9534f;
   border-color: #d9534f;
 }
 
 .btn-danger:hover {
-  border : 3px solid;
-  border-radius:10px 10px 10px 10px;
+  border : 4px solid;
+  border-radius:50%;
   color: #fff;
   background-color: #d23430;
   border-color: #c9302c;
@@ -5239,9 +5256,9 @@ color:white;
 }
 
 .card-deck {
-  opacity: 0,5;
+  
 
-background-color: #EAEAEA;
+background-color: #EAEAEA ;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
@@ -5277,7 +5294,7 @@ position: relative;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-            
+            margin-bottom: 15px;
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -10946,6 +10963,7 @@ body, html {
  height: 100%;
  margin: 0;
  font-family: Arial, Helvetica, sans-serif;
+ background-color: #fff;
 }
 
 .hero-image {
@@ -10958,8 +10976,7 @@ body, html {
 }
 
 .hero-image-2 {
- background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("chat.jpg");
- height: 50%;
+ background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
