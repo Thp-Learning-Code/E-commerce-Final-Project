@@ -63,7 +63,7 @@
   <p id="alert"> <%= alert %> </p>
     <div id="cart">
     <% if @cart && @cart.line_items.any? %>
-    <%= render @cart %>
+   <h2>konéchiwa</h2>
     <% else %>
     
     <div class="card text-center">
@@ -81,7 +81,7 @@
     </div>
   </div>
  <br>
-<div class="d-flex flex-column align-items-center  ">
+<div class="d-flex flex-col aumn align-items-center  ">
 <% if user_signed_in? && current_user.id == @picture.administrator_id%>
 <p><%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Supprimer', picture_path(@picture), method: :delete %> |
