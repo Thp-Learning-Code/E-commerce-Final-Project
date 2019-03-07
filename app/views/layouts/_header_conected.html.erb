@@ -30,12 +30,15 @@
                                          </div>
                                       
                                          <ul>
+                                          <br>
                                           <li>
                                              <a > <%= link_to "Voir le profil",user_path(current_user),class:"card-link"%></a>
                                            </li>
+                                           <br>
                                          <li>
                                              <a class="card-link" href="/users/edit"> Modifier mes informations </a>
                                           </li>
+                                          <br>
                           
                                         
                                         </ul>
@@ -61,7 +64,7 @@
                       <div class="dropdown">
                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-shopping-cart" style="font-size: 25px; color: #D3A723;"></i></a> 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <p id="notice"><%= notice %></p>
+                            
                               <p id="alert"> <%= alert %> </p>
                               <div id="cart">
                                  <% if @cart && @cart.line_items.any? %>
@@ -82,11 +85,14 @@
                                                   <ul>
                                                         <% @cart.line_items.each do |item| %>
                                                        <li style="color: black;"> <%= item.picture.name %> x <%= item.quantity %>
+                                                       
                                                          <p>Prix unitaire = <%= number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></p>
-                                                            <%= link_to 'X', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-outline-danger" %>
+                                                            <%= link_to 'x', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" %>
+                                                            <br>
                                                        </li>
+                                                       <br>
                                                                            <%end%>
-                                                           <h6 style="color: black;"> Total = <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </h6>
+                                                          <li> <h6 style="color: black;"> Total = <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </h6></li>
                                                   </ul>
                                                         <%= button_to "Acheter", new_order_path, method: :get, class: "btn btn-outline-success" %>
 

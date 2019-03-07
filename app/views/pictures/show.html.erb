@@ -49,14 +49,14 @@
 
 
 <% if user_signed_in? %>
-<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), data: {confirm: "L'article a été ajouté"}, remote: true %>
+<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), data: {confirm: "L'article a été ajouté"}, remote: true,  class:"btn btn-outline-success my-2 my-sm-0"%>
 <%else%>
 <h3 class="text-center">Connect toi pour acheter</h3>
  <% end %>
 <%if user_signed_in? && current_user.id == @picture.administrator_id%>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <center><i style="font-size: 30px; color: #D3A723" class="fas fa-shopping-cart"></i>
-<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0", data: {confirm: "L'article a été ajouté"}, remote: true %></center>
+<%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), data: {confirm: "L'article a été ajouté"}, remote: true %></center>
 
   <% end %>
 

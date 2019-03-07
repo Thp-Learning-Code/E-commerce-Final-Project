@@ -2992,12 +2992,16 @@ fieldset:disabled a.btn {
 }
 
 .btn-danger {
+  border:3px solid;
+  border-radius:30px 30px 30px 30px;
   color: #fff;
   background-color: #d9534f;
   border-color: #d9534f;
 }
 
 .btn-danger:hover {
+  border : 3px solid;
+  border-radius:10px 10px 10px 10px;
   color: #fff;
   background-color: #d23430;
   border-color: #c9302c;
@@ -3265,7 +3269,7 @@ fieldset:disabled a.btn {
           box-shadow: 0 0 0 0.2rem rgba(240, 173, 78, 0.5);
 }
 .btn-outline-danger {
-  border-radius:12px 0 12px 0;
+  border-radius:12px 12px 12px 12px;
     background: #d34836;
     border:none;
     color:#fff;

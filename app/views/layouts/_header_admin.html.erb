@@ -1,0 +1,73 @@
+<div class="bs-component">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top semi transparent">
+                <a class="navbar-brand" href="/"> <i style ="color: #FFBBC5;font-size: 35px;" class="fas fa-cat"></i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+             <div class="collapse navbar-collapse" id="navbarColor02">
+                  <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item active">
+                      <div class="dropdown"> 
+                           <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon profil</a> 
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <div class="card text-center">
+                                       <div class="card-header">
+                                          <div class="card-title">
+
+                                               <h6 class="dropdown-item" >Bonjour, <%= current_user.first_name %> !</h6>
+                                          </div>
+                                         </div>
+                                      
+                                         <ul>
+                                          <br>
+                                          <li>
+                                             <a > <%= link_to "Voir le profil",user_path(current_user),class:"card-link"%></a>
+                                           </li>
+                                           <br>
+                                         <li>
+                                             <a class="card-link" href="/users/edit"> Modifier mes informations </a>
+                                          </li>
+                                          <br>
+                          
+                                        
+                                        </ul>
+                                            
+                                            <center>
+                                             <a class="btn" role="button" aria-pressed="true"> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete,class: "btn btn-outline-success" %></a>
+                                           </center>
+                                          
+                                         <br>
+
+
+
+
+
+                                  </div>
+                              </div>
+
+                     
+                      </li>
+                      
+                
+                      </ul>
+                     
+                  
+                
+            
+                     
+                <form class="form-inline my-2 my-lg-0">
+              <a class="btn btn-outline-success my-2 my-sm-0" href="/pictures/new"> Vendre une photo</a>
+              </form>
+                  
+
+            </div>
+
+                             
+
+      </div>
+    </div>
+    </nav>
+  </div>

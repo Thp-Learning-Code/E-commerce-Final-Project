@@ -47,31 +47,29 @@
                     <h4> Etat: <%= p.condition%></h4>
 
                     <br>
-                    <p> Descriptions :<%= p.description %></p>
+                    <h6 style="color: black; "> Description :</h6><p><%= p.description %></p>
 
               </div>
 
-              
-                  <button class="btn-outline-success">
-                  <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id%>
-                  </button>
+               
+    <%= link_to "En savoir plus...",controller: "pictures", action:"show", id: p.id%>
+  
+                  
+                
+                
 
 
-
+<br>
              
 
  <center><i style="font-size: 30px; color: #D3A723;" class="fas fa-shopping-cart"></i>
 <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: p.id), class:"btn btn-outline-success my-2 my-sm-0", data: {confirm: "L'article a été ajouté"}, remote: true %></center>
 <br>
-<br>
+<br></div></div>
 <%end%>
 
 
-              </div>
-
-              </div>
-
-              </div>
+              </div></main>
 
 
-                            <%end%>
+                           

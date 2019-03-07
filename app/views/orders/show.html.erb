@@ -1,8 +1,9 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Nom:</strong>
-  <%= @order.name %>
+  <%= @order.name,class:"form-control";%>
 </p>
 
 <p>
@@ -27,3 +28,4 @@
 
 
 <%= link_to "Retour vers la page d'accueil", root_path %>
+</div>
