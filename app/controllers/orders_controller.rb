@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  
+
   before_action :set_cart, only: [:new, :create]
 
 
@@ -28,18 +28,43 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+
     @order = Order.new(order_params)
     @order.cart = @cart
+
+    @amount = @cart.total * 100
+
+  customer = Stripe::Customer.create({
+    email: params[:stripeEmail],
+    source: params[:stripeToken],
+  })
+  charge = Stripe::Charge.create({
+    customer: customer.id,
+    amount: @amount,
+    description: 'Rails Stripe customer',
+    currency: 'eur',
+  })
+
+  @order.stripe_id = customer.id
 
     respond_to do |format|
       if @order.save
         session.delete(:cart_id)
-        format.html { redirect_to root_path, notice: 'Order was successfully created.' }
+        format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
+
+
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
+
+
       end
+
+
+
+
+
     end
   end
 
@@ -76,7 +101,7 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:name, :address, :email)
-   
+
     end
 
 end

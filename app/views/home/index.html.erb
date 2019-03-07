@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-
-
-</head>
-<body>
-
 <main role="main">
-
-
 
  <!-- Main jumbotron for a primary marketing message or call to action -->
 <% if user_signed_in? %>
@@ -19,12 +8,12 @@
     <h1 style ="font-family: serif;color: #fff;">Bienvenue <%= current_user.first_name %> !</h1>
     <h6 style="color: white;">
     Decouvre les dernieres photos de chatons </h6>
-    
+
   </div>
   </div>
- 
+
  <%else%>
- 
+
   <div class="hero-image">
                    <div class="hero-text">
                      <p style="font-size:  70px; color : #FFBBC5">Bienvenue </p>
@@ -37,8 +26,8 @@
 
      <div class="card-deck semi-transparent ">
           <% @pictures.each do |p| %>
-            <div class="col-4 "">
-
+            <div class="col-4 ">
+              <%= image_tag url_for(p.chat_pic) %>
               <div class="card text-center ">
               <div class="card-header ">
                    <h4  class="card-title "><%= p.name %><span style="color: #FFBBC5"> _____________</span> <%= p.price %> € </h4>
@@ -48,6 +37,7 @@
 
                     <br>
                     <p> Descriptions :<%= p.description %></p>
+<<<<<<< HEAD
               </div>
 
               <div>
@@ -70,7 +60,49 @@
 
 
                             <%end%>
+=======
+                  </div>
+                    <div>
+                    <br>
+                  <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
+                  <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: p.id), data: {confirm: "L'article a été ajouté"}, remote: true %>
+                  <div>
+                  <%if user_signed_in?%>
+                    <%if current_user.id == p.administrator.id %>
+                        <%=link_to 'edit' , edit_picture_path(p.id) %>
+                    <%end%>
+                  <%end%>
+                  </div>
+                  <br><br>
+                  </div>
+
+                  </div>
+                </div>
+                  <%end%>
+      <%# <%end%> %>
+      <br>
+    </div>
+    <p id="alert"> <%= alert %> </p>
+      <div id="cart">
+      <% if @cart && @cart.line_items.any? %>
+      <%= render @cart %>
+      <% else %>
+
+      <div class="card text-center">
+      <div class="card-title">
+        <span style="font-size: 40px; color: #D3A723;">
+    <i class="fas fa-shopping-cart"></i>
+    <a class="btn-outline-success" aria-pressed="true" href="/" style="font-size: 30px">Mon panier</a>
+  </span>
+
+  </div>
+      <p> Votre panier est vide </p>
+    </div>
+
+      <% end %>
+      </div>
+
+>>>>>>> development
 
 </main>
-
-</body>
+<br>

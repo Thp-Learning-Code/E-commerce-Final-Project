@@ -20,6 +20,11 @@
       <%end%>
        <h6 style="color: black;"> Total = <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </h2>
   </ul>
+
+
+
+
   <%= button_to "Acheter", new_order_path, method: :get, class: "btn btn-primary" %>
+  <%= button_to "Vider le panier", @cart, method: :delete, data: {confirm: "Etes vous surs ?"}, class: "btn btn-primary" %>
 
 </div></div></div>
