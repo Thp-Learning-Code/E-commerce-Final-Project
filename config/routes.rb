@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     root :to => 'admin#index'
     resources :picture, except: [:new, :create]
     resources :users, except: [:new , :create]
+    resources :orders, except: [:new , :create]
   end
- 
- 
+
+
 end
