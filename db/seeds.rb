@@ -19,6 +19,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('pictures')
 end
 
 puts 'Users created'
+User.create!(first_name:"gros",last_name:"gros", description:"je suis admin", email:"jiad@jiad.com", password:123456)
 
 # 5.times do |_i|
 #   Picture.create!(name: Faker::Name.first_name, description: 'Moi,Moche et Méchant. Allez acheter cette putain de photo !', price: rand(1..30), condition: 'good', administrator_id: User.all.sample.id)
