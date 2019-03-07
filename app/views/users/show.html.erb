@@ -11,7 +11,34 @@
         <center>
 
 
-       <%= image_tag @user.avatar, alt: 'avatar',width:"350", height:"250", class:"img-circle"%>
+          <%if @user.avatar.attached?%>
+
+             <%= image_tag @user.avatar, alt: 'avatar',width:"350", height:"250", class:"img-circle" %>
+
+               <p>Upload a new Profile Picture</p>
+
+                 <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+                     <%= file_field_tag :avatar, class:"btn"%>
+
+
+                         <% if  %>
+                          <%= submit_tag "mettre à jour", class:"btn-outline-success" %>
+                         <% end%>
+
+
+                     <% end %>
+
+
+           <%else%>
+
+                <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+                  <%= file_field_tag :avatar %>
+                     <%= submit_tag "mettre à jour" %>
+                   <% end %>
+
+           <%end%>
+
+
 
         </center>
 

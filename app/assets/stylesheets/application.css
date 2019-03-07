@@ -724,7 +724,7 @@ pre code {
 }
 .img-cat{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-    
+
     width: 900px;
     height: 600px;
     border: 3px solid #FFBBC5;
@@ -5256,7 +5256,7 @@ color:white;
 }
 
 .card-deck {
-  
+
 
 background-color: #EAEAEA ;
 background-position: center;
@@ -5294,11 +5294,7 @@ position: relative;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-<<<<<<< HEAD
             margin-bottom: 15px;
-=======
-
->>>>>>> development
     margin-right: 15px;
     margin-left: 15px;
   }
