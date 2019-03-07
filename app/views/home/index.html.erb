@@ -17,26 +17,23 @@
  <div class="hero-text">
 
     <h1 style ="font-family: serif;color: #fff;">Bienvenue <%= current_user.first_name %> !</h1>
-
-
-
-    
-
     <h6 style="color: white;">
     Decouvre les dernieres photos de chatons </h6>
     
-</div>
+  </div>
+  </div>
+ 
+ <%else%>
+ 
+  <div class="hero-image">
+                   <div class="hero-text">
+                     <p style="font-size:  70px; color : #FFBBC5">Bienvenue </p>
+                      <p>Voici les dernieres offres de chatons </p>
+                  </div>
+                </div>
+              </div>
 
-
-
-
-</div>
-</div>
-
-</div>
-
-
-
+<%end%>
 
      <div class="card-deck semi-transparent ">
           <% @pictures.each do |p| %>
@@ -57,10 +54,14 @@
 
                   <%= link_to "Voir l'article",controller: "pictures", action:"show", id: p.id %>
  <br>
+<% if user_signed_in? %>
+
  <center><i style="font-size: 30px; color: #D3A723;" class="fas fa-shopping-cart"></i>
 <%= button_to 'Ajoutez dans le panier', line_items_path(picture_id: @picture), class:"btn btn-outline-success my-2 my-sm-0", data: {confirm: "L'article a été ajouté"}, remote: true %></center>
 <br>
 <br>
+<%end%>
+
 
               </div>
               </div>
@@ -69,42 +70,6 @@
 
 
                             <%end%>
-
-  <%else%>
-                  <div class="hero-image">
-                   <div class="hero-text">
-                     <p style="font-size:  70px; color : #FFBBC5">Bienvenue </p>
-                      <p>Voici les dernieres offres de chatons </p>
-                  </div>
-                </div>
-              </div>
-<div class="card-deck semi-transparent">
-          <% @pictures.each do |p| %>
-            <div class="col-4 ">
-              <div class="card text-center ">
-                <div class="card-header text-center">
-                  <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                      <h4 class="card-title text-center"><%= p.name %></h4>
-                    </li>
-                  </ul>
-                </div>
-                  <div class="card-body">
-                    <h4> Etat: <%= p.condition%></h4>
-                    <h5> Prix :<%= p.price %> € </h5>
-                    <br>
-                    <p> Descriptions :<%= p.description %></p>
-                  </div>
-                </div>
-              </div>
-      <%end%>
-
-
-    </div>
-
-  <%end%>
-
-
 
 </main>
 

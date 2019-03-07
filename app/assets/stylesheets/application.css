@@ -134,7 +134,7 @@
   color:  #ffffff;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 .footer-distributed .footer-icons{
@@ -155,7 +155,7 @@
   line-height: 35px;
 
   margin-right: 3px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
@@ -3684,7 +3684,7 @@ input[type="button"].btn-block {
 .dropdown-item:hover, .dropdown-item:focus {
   color: #0d0d0d;
   text-decoration: none;
-  background-color: #f8f9fa;
+ 
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -4545,16 +4545,16 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color:black;
+  color:#FFBBC5;
 }
 
 .nav-link:hover, .nav-link:focus {
-  color:#FFBBC5;
+  color:#fff;
   text-decoration: none;
 }
 
 .nav-link.disabled {
-  color: #919aa1;
+  color: #FFBBC5;
   pointer-events: none;
   cursor: default;
 }
@@ -4631,7 +4631,10 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-  background-color: #fff;
+  background-color: #EAEAEA;
+    opacity: 0.8;
+    filter:alpha(opacity=70);
+    -moz-opacity:0.7;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5105,8 +5108,8 @@ color:white;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 2px solid ;
-  border-color: #FFBBC5;
+  border: 3px solid ;
+  border-color: #BABABA;
   border-radius: 30px 0 30px 0;
 }
 
@@ -5152,8 +5155,11 @@ color:white;
 
   margin-bottom: 0;
 }
-
+.card-link{
+  color: black;
+}
 .card-link:hover {
+  color: #FFBBC5;
   text-decoration: none;
 }
 
@@ -5231,7 +5237,7 @@ color:white;
 .card-deck {
   opacity: 0,5;
 
-background-color: #fff;
+background-color: #EAEAEA;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
@@ -10820,8 +10826,12 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .navbar-brand {
-  margin-left: 27rem;
-  margin-right: 24rem;
+  margin-left: 0rem;
+  margin-right: 1rem;
+}
+.nav-link{
+  margin-left: 0rem;
+  margin-right: 25rem;
 }
 
 .bg-primary {
@@ -10942,7 +10952,7 @@ body, html {
 }
 
 .hero-image {
- background-image:  url("chat.jpg");
+ background-image:linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)),  url("chat.jpg");
  height: 650px;
  background-position: center;
  background-repeat: no-repeat;

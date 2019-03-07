@@ -23,36 +23,7 @@
         
         </center>
     
-          <div class="text-center">
-            <p style="color:black;">Avatar actuel<p>
-              
-              
-               <%if @user.avatar.attached?%>
-
-                  <%= image_tag @user.avatar, alt: 'avatar' %>
-
-                    <p>Upload a new Profile Picture</p>
-      
-                      <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-                          <%= file_field_tag :avatar, class:"btn"%>
-
-     
-                              <% if  %>
-                               <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
-                              <% end%>
-
-    
-                          <% end %>
-
-                       
-                <%else%>
-
-                     <%= form_tag user_avatar_index_path(@user), multipart: true do %>
-                       <%= file_field_tag :avatar %>
-                          <%= submit_tag "mettre à jour" %>
-                        <% end %>
-
-                <%end%>
+        
            
                        
                         <br>
@@ -65,5 +36,6 @@
             </div>
          </div>
        </div>
+     </p></p></div></div></div></div>
     </body>
 </html>

@@ -1,21 +1,25 @@
 <p id="notice"><%= notice %></p>
 
  <div class="card text-center">
+  <div class="card-header"
     <div class="card-title">
-      <span style="font-size: 40px; color: #FFBBC5;">
-  <i class="fas fa-shopping-cart"></i>
-  <a class="btn-outline-success" aria-pressed="true" href="/" style="font-size: 30px">Mon panier</a>
+      <span style="font-size: 40px; color: #D3A723;">
+ <i class ="fas fa-shopping-cart" style="font-size: 30px; color: #D3A723;"> </i>
+                                               <h6 class="dropdown-item">Mon panier</h6>
+
 </span>
+</div>
+
 <div class="card-body">
   <ul>
       <% @cart.line_items.each do |item| %>
-        <li style="color:#FFBBC5"> <%= item.picture.name %> x <%= item.quantity %>
-          Prix unitaire = <%= number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
+        <li style="color: black;"> <%= item.picture.name %> x <%= item.quantity %>
+          <p>Prix unitaire = <%= number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></p>
           <%= link_to 'X', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-outline-danger" %>
         </li>
       <%end%>
-       <h2 style= style="color: black;"> Total = <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </h2>
+       <h6 style="color: black;"> Total = <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </h2>
   </ul>
   <%= button_to "Acheter", new_order_path, method: :get, class: "btn btn-primary" %>
-<%= button_to 'Valider la commande', @cart, method: :delete, data: {confirm: "Etes-vous sur ?"}, remote: true %>
+
 </div></div></div>

@@ -4,7 +4,45 @@
                    <h1 class="card-title" style="color: black;">Editer votre profil</h1>
 
                 </div>
-  
+  <div class="span3 well">
+        
+        <center>
+         
+        
+       <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
+        
+        </center>
+    
+          <div class="text-center">
+            <p style="color:black;">Avatar actuel<p>
+              
+              
+               <%if @user.avatar.attached?%>
+
+                  <%= image_tag @user.avatar, alt: 'avatar' %>
+
+                    <p>Upload a new Profile Picture</p>
+      
+                      <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+                          <%= file_field_tag :avatar, class:"btn"%>
+
+     
+                              <% if  %>
+                               <%= submit_tag "mettre à jour", class:"btn btn-primary btn-lg btn-block" %>
+                              <% end%>
+
+    
+                          <% end %>
+
+                       
+                <%else%>
+
+                     <%= form_tag user_avatar_index_path(@user), multipart: true do %>
+                       <%= file_field_tag :avatar %>
+                          <%= submit_tag "mettre à jour" %>
+                        <% end %>
+
+                <%end%>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -53,14 +91,15 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class:"btn btn-outline-success my-2 my-sm-0"%>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+</center></div>
 <%= link_to "Back", :back %>
 </center>
+</div></div>
 
