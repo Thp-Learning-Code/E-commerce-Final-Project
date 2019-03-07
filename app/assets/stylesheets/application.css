@@ -549,7 +549,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
- 
+
   font-size: 2rem;
 }
 
@@ -1047,7 +1047,7 @@ pre code {
 .fixed-top
 {
     position: fixed;
-    z-index: 1030; 
+    z-index: 1030;
     top: 0;
     right: 0;
     left: 0;
@@ -2317,7 +2317,7 @@ select.form-control:focus::-ms-value {
 }
 .form-control-plaintext:focus
 {color: #55595c;
-  background-color: #fff
+  background-color: #fff;
   border-color: #5a5a5a;
   outline: 0;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
@@ -3489,7 +3489,7 @@ input[type="button"].btn-block {
   display: inline-block;
   margin-left: 0.255em;
   vertical-align: 0.255em;
-  
+
   border-top: 0.3em solid;
   border-right: 0.3em solid transparent;
   border-bottom: 0;
@@ -3511,8 +3511,8 @@ input[type="button"].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 0.875rem;
-  
-  
+
+
 
 }
 
@@ -3684,7 +3684,7 @@ input[type="button"].btn-block {
 .dropdown-item:hover, .dropdown-item:focus {
   color: #0d0d0d;
   text-decoration: none;
- 
+
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -4869,7 +4869,7 @@ input[type="button"].btn-block {
     position: absolute;
   }
   .navbar-expand-lg .navbar-nav .nav-link {
-    
+
   }
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
@@ -5134,7 +5134,7 @@ color:white;
 }
 
 .card-body {
- 
+
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -5273,7 +5273,7 @@ position: relative;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-            
+
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -10942,7 +10942,7 @@ th {
    color: #FFBBC5;
    text-align: center;
    font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-} 
+}
 
 /* Banner home page */
 body, html {
@@ -11016,15 +11016,15 @@ body, html {
 .column1 {
   float: left;
   width: 66.66%;
-  padding: 5px; 
+  padding: 5px;
 
 }
 
   .column2 {
   float: left;
   width: 33.33%;
-  padding: 5px; 
-  
+  padding: 5px;
+
 }
 
   .putaindemarge {
@@ -11032,9 +11032,9 @@ body, html {
   }
 
   .column50 {
-  
+
   width: 50%;
-  padding: 5px; 
+  padding: 5px;
 
 
 
@@ -11043,7 +11043,7 @@ body, html {
 .centrertxt {
   min-height: 10em;
     display: table-cell;
-    vertical-align: middle 
+    vertical-align: middle
 }
 
 .colorform {
