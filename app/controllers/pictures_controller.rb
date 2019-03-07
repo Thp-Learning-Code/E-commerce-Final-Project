@@ -6,6 +6,9 @@ class PicturesController < ApplicationController
   before_action :check_if_user_is_administrator_of_product_pic , only: [:edit, :update]
   before_action :set_picture, only: %i[show edit update destroy]
 
+    
+      before_action :secure_picture, only: [:index]
+
   # GET /pictures
   # GET /pictures.json
   def index
@@ -32,7 +35,8 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to @picture}
+        flash[:success]='Picture was successfully created.'
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }

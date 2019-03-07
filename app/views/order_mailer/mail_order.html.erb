@@ -1,1 +1,14 @@
-<P> Commande recu</P>
+<p> Voici votre commande </p>
+
+<ul>
+    <% @user.cart.line_items.each do |item| %>
+      <li style="color: black;"> <%= item.picture.name %> x <%= item.quantity %>
+        <p>Prix unitaire = <%= number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></p>
+      </li>
+    <%end%>
+
+    <h6 style="color: black;"> Total = <%= number_to_currency(@user.cart.total, unit: "€", separator: ",", format: "%n %u") %> </h2>
+
+</ul>
+
+<p> Merci de votre achat </p>

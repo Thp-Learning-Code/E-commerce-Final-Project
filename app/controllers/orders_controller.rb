@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   before_action :set_cart, only: [:new, :create]
 
-
+  before_action :secure_picture, only: [:index]
   # GET /orders
   # GET /orders.json
   def index
@@ -38,12 +38,12 @@ class OrdersController < ApplicationController
     email: params[:stripeEmail],
     source: params[:stripeToken],
   })
-  #charge = Stripe::Charge.create({
-  #  customer: customer.id,
-  # amount: @amount,
-  #  description: 'Rails Stripe customer',
-  #  currency: 'eur',
-  #})
+  charge = Stripe::Charge.create({
+   customer: customer.id,
+  amount: @amount,
+   description: 'Rails Stripe customer',
+   currency: 'eur',
+  })
 
   @order.stripe_id = customer.id
 
