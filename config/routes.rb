@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :orders
   resources :line_items
   resources :carts
@@ -14,4 +15,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :avatar, only: [:create]
   end
+
+  namespace :superadmin do
+    root :to => 'admin#index'
+    resources :picture, except: [:new, :create]
+    resources :users, except: [:new , :create]
+  end
+ 
+ 
 end
