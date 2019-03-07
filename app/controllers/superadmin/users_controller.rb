@@ -1,5 +1,6 @@
 class Superadmin::UsersController < ApplicationController
   def index
+    @user = User.all
   end
 
   def show
@@ -15,5 +16,8 @@ class Superadmin::UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success]="deleted"
   end
 end
