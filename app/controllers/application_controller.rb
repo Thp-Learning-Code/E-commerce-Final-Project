@@ -22,16 +22,29 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def check_if_user_is_administrator_of_product_pic
-    @picture = Picture.find(params[:id])
-    if user_signed_in? && current_user.id != @picture.administrator_id
-      flash[:danger]="oh moussaillon tu fais quoi ici"
-      redirect_to root_path
+    def check_if_user_is_administrator_of_product_pic
+      @picture = Picture.find(params[:id])
+      if user_signed_in? && current_user.id != @picture.administrator_id
+        flash[:danger]="oh moussaillon tu fais quoi ici"
+        redirect_to root_path
 
-    elsif !user_signed_in?
-      flash[:danger]="oh moussaillon tu fais quoi ici"
-      redirect_to root_path
+      elsif !user_signed_in?
+        flash[:danger]="oh moussaillon tu fais quoi ici"
+        redirect_to root_path
+      end
     end
-  end
+
+    def super_admin_security
+      @user = User.find_by(is_superadmin:true)
+      puts "#{@user.id}"
+      if user_signed_in? && current_user.id != @user.id
+        flash[:success]="Ca n'existe pas"
+        redirect_to '/'
+      elsif !user_signed_in?
+          redirect_to root_path
+      end
+    end
+
+
 
 end
