@@ -5094,7 +5094,7 @@ color:white;
 }
 
 .card {
-  box-shadow: 1px 1px 15px  black;
+  box-shadow: 2px 2px 16px #555;;
 
   position: relative;
   display: -webkit-box;
@@ -5108,8 +5108,8 @@ color:white;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 3px solid ;
-  border-color: #BABABA;
+  border: 2px solid ;
+  border-color: #FFBBC5;
   border-radius: 30px 0 30px 0;
 }
 
@@ -10825,14 +10825,7 @@ a.text-dark:hover, a.text-dark:focus {
   padding-bottom: .715rem;
 }
 
-.navbar-brand {
-  margin-left: 0rem;
-  margin-right: 1rem;
-}
-.nav-link{
-  margin-left: 0rem;
-  margin-right: 25rem;
-}
+
 
 .bg-primary {
   background-color: #1a1a1a !important;
