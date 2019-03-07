@@ -8,7 +8,10 @@
           <th scope="col">Last_name</th>
           <th scope="col">Email</th>
           <th scope="col">Admin</th>
+          <th scope="col">Show<th>
+          <th scome="col">Edit</th>
           <th scope="col">Delete</i><th>
+
         </tr>
       </thead>
       <tbody>
@@ -17,7 +20,10 @@
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
+          <td> <%= link_to 'voir', superadmin_user_path(user) %></td>
           <td> a renseigner </td>
+          <td> a renseigner </td>
+
           <td><%=  link_to 'Delete', superadmin_user_path(user), method: :delete  %></td>
         </tr>
     <%end%>
