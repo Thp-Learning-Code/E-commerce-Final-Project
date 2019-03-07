@@ -1,0 +1,32 @@
+<h1>Superadmin::Orders#index</h1>
+<p>Find me in app/views/superadmin/orders/index.html.erb</p>
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Condition</th>
+      <th scope="col">Numero de la commande</th>
+      <th scope="col">Action</i><th>
+    </tr>
+  </thead>
+  <tbody>
+<%@orders.each do |o|%>
+    <tr>
+      <td><%= o.name %></td>
+      <td><%= o.address %></td>
+      <td><%= o.email %></td>
+      <td><%= o.status %></td>
+      <td><%= o.stripe_id %></td>
+      <td><%=  link_to 'Delete', superadmin_order_path(o), method: :delete  %>
+      <%=  link_to 'Edit', edit_superadmin_order_path(o), method: :delete  %>
+      <%=  link_to 'Show', order_path(o), method: :delete  %></td>
+    </tr>
+<%end%>
+    <tr>
+  </tbody>
+</table>
+</div>

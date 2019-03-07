@@ -1,2 +1,8 @@
-<h1>Superadmin::Admin#index</h1>
-<p>Find me in app/views/superadmin/admin/index.html.erb</p>
+<br><br><br><br><br><br><br><br><br><br>
+<h1>Bienvenue, <%= current_user.first_name %></h1>
+
+
+<%= link_to "Les utilisateurs", superadmin_users_path %>
+
+<%= link_to "Les produits", superadmin_picture_index_path %>
+<%= link_to "Les commandes", superadmin_orders_path %>
