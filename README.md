@@ -1,24 +1,14 @@
-# README
+![](https://media.giphy.com/media/VsSksaIufXQR2/giphy.gif)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# E-commerce Projet
 
-* Ruby version
+Voici le lien en production : ***https://e-commerce-thp-staging.herokuapp.com/***
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Projet réaliser par l'équipe :
+  - Maxime Parsis
+  - LIM SEBASTIEN
+  - ABDUL Jiad
+  - GOLFA AMADOU
+  - MARTIN THÉO
+  - MULEZI Guillaume
